@@ -1,14 +1,19 @@
 import 'package:bloc/bloc.dart';
+import 'package:grasstudy_client/common/config/di.dart';
 import 'package:grasstudy_client/data/model/user.dart';
-import 'package:meta/meta.dart';
+import 'package:grasstudy_client/data/repository/user/user_repository.dart';
 
 part 'user_event.dart';
 part 'user_state.dart';
 
 class UserBloc extends Bloc<UserEvent, User?> {
-  UserBloc() : super(null) {
+  UserBloc()
+      : _userRepository = di.get<UserRepository>(),
+        super(null) {
     on<UserEvent>((event, emit) {});
   }
+
+  final UserRepository _userRepository;
 
   User? get user => state;
 }

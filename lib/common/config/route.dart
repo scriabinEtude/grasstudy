@@ -13,6 +13,15 @@ class GrassRouter {
 
   GrassRouter({required this.noLoginRequireds});
 
+  factory GrassRouter.preDefinedNoLoginRequireds() {
+    return GrassRouter(noLoginRequireds: [
+      SplashScreen.routeName,
+      HomeScreen.routeName,
+      LoginScreen.routeName,
+      RegisterScreen.routeName,
+    ]);
+  }
+
   GoRouter getRouter() {
     return GoRouter(
       debugLogDiagnostics: true,

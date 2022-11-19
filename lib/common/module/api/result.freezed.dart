@@ -19,19 +19,25 @@ mixin _$Result<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String message) failure,
+    required TResult Function(DateTime timestamp, String path, int status,
+            String error, String? message, String requestId)
+        failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
+    TResult? Function(DateTime timestamp, String path, int status, String error,
+            String? message, String requestId)?
+        failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String message)? failure,
+    TResult Function(DateTime timestamp, String path, int status, String error,
+            String? message, String requestId)?
+        failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,7 +145,9 @@ class _$Success<T> implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String message) failure,
+    required TResult Function(DateTime timestamp, String path, int status,
+            String error, String? message, String requestId)
+        failure,
   }) {
     return success(data);
   }
@@ -148,7 +156,9 @@ class _$Success<T> implements Success<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
+    TResult? Function(DateTime timestamp, String path, int status, String error,
+            String? message, String requestId)?
+        failure,
   }) {
     return success?.call(data);
   }
@@ -157,7 +167,9 @@ class _$Success<T> implements Success<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String message)? failure,
+    TResult Function(DateTime timestamp, String path, int status, String error,
+            String? message, String requestId)?
+        failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -213,7 +225,13 @@ abstract class _$$FailureCopyWith<T, $Res> {
           _$Failure<T> value, $Res Function(_$Failure<T>) then) =
       __$$FailureCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String message});
+  $Res call(
+      {DateTime timestamp,
+      String path,
+      int status,
+      String error,
+      String? message,
+      String requestId});
 }
 
 /// @nodoc
@@ -227,12 +245,37 @@ class __$$FailureCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? timestamp = null,
+    Object? path = null,
+    Object? status = null,
+    Object? error = null,
+    Object? message = freezed,
+    Object? requestId = null,
   }) {
     return _then(_$Failure<T>(
-      null == message
+      timestamp: null == timestamp
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      path: null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int,
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      requestId: null == requestId
+          ? _value.requestId
+          : requestId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -241,14 +284,30 @@ class __$$FailureCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$Failure<T> implements Failure<T> {
-  _$Failure(this.message);
+  _$Failure(
+      {required this.timestamp,
+      required this.path,
+      required this.status,
+      required this.error,
+      required this.message,
+      required this.requestId});
 
   @override
-  final String message;
+  final DateTime timestamp;
+  @override
+  final String path;
+  @override
+  final int status;
+  @override
+  final String error;
+  @override
+  final String? message;
+  @override
+  final String requestId;
 
   @override
   String toString() {
-    return 'Result<$T>.failure(message: $message)';
+    return 'Result<$T>.failure(timestamp: $timestamp, path: $path, status: $status, error: $error, message: $message, requestId: $requestId)';
   }
 
   @override
@@ -256,11 +315,19 @@ class _$Failure<T> implements Failure<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Failure<T> &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.timestamp, timestamp) ||
+                other.timestamp == timestamp) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.requestId, requestId) ||
+                other.requestId == requestId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(
+      runtimeType, timestamp, path, status, error, message, requestId);
 
   @JsonKey(ignore: true)
   @override
@@ -272,29 +339,35 @@ class _$Failure<T> implements Failure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String message) failure,
+    required TResult Function(DateTime timestamp, String path, int status,
+            String error, String? message, String requestId)
+        failure,
   }) {
-    return failure(message);
+    return failure(timestamp, path, status, error, message, requestId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
+    TResult? Function(DateTime timestamp, String path, int status, String error,
+            String? message, String requestId)?
+        failure,
   }) {
-    return failure?.call(message);
+    return failure?.call(timestamp, path, status, error, message, requestId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String message)? failure,
+    TResult Function(DateTime timestamp, String path, int status, String error,
+            String? message, String requestId)?
+        failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(message);
+      return failure(timestamp, path, status, error, message, requestId);
     }
     return orElse();
   }
@@ -332,9 +405,20 @@ class _$Failure<T> implements Failure<T> {
 }
 
 abstract class Failure<T> implements Result<T> {
-  factory Failure(final String message) = _$Failure<T>;
+  factory Failure(
+      {required final DateTime timestamp,
+      required final String path,
+      required final int status,
+      required final String error,
+      required final String? message,
+      required final String requestId}) = _$Failure<T>;
 
-  String get message;
+  DateTime get timestamp;
+  String get path;
+  int get status;
+  String get error;
+  String? get message;
+  String get requestId;
   @JsonKey(ignore: true)
   _$$FailureCopyWith<T, _$Failure<T>> get copyWith =>
       throw _privateConstructorUsedError;
