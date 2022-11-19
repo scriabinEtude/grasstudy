@@ -6,11 +6,15 @@ class AppForm extends StatelessWidget {
     required this.formKey,
     required this.emailController,
     required this.passwordController,
+    this.onEmailChange,
+    this.onPasswordChange,
   });
   final GlobalKey<FormState> formKey;
 
   final TextEditingController emailController;
   final TextEditingController passwordController;
+  final void Function(String)? onEmailChange;
+  final void Function(String)? onPasswordChange;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +24,7 @@ class AppForm extends StatelessWidget {
         children: [
           TextFormField(
             controller: emailController,
+            onChanged: onEmailChange,
             decoration: const InputDecoration(
               label: Text('이메일'),
             ),
@@ -34,6 +39,7 @@ class AppForm extends StatelessWidget {
           ),
           TextFormField(
             controller: passwordController,
+            onChanged: onPasswordChange,
             obscureText: true,
             decoration: const InputDecoration(
               label: Text('비밀번호'),
