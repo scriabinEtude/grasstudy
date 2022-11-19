@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:go_router/go_router.dart';
-import 'package:grasstudy_client/route.dart';
+import 'package:grasstudy_client/common/config/route.dart';
 
 part 'route_state.freezed.dart';
 

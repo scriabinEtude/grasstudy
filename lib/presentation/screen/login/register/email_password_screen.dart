@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grasstudy_client/bloc/register/register_bloc.dart';
-import 'package:grasstudy_client/components/logo.dart';
-import 'package:grasstudy_client/screen/login/components/app_form.dart';
+import 'package:grasstudy_client/presentation/components/logo.dart';
+import 'package:grasstudy_client/presentation/screen/login/components/app_form.dart';
 import 'package:grasstudy_client/bloc/register/register_event.dart';
 
 class EmailPasswordScreen extends StatelessWidget {

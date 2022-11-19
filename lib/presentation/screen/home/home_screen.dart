@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:grasstudy_client/screen/user_info/user_screen.dart';
+import 'package:grasstudy_client/presentation/screen/user_info/user_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

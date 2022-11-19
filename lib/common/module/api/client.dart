@@ -1,4 +1,4 @@
-import 'package:grasstudy_client/module/api/result.dart';
+import 'package:grasstudy_client/common/module/api/result.dart';
 
 abstract class Client {
   Future<Result<T>> get<T>({

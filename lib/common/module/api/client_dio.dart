@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:grasstudy_client/module/api/client.dart';
-import 'package:grasstudy_client/module/api/result.dart';
+import 'package:grasstudy_client/common/module/api/client.dart';
+import 'package:grasstudy_client/common/module/api/result.dart';
 
 class ClientDio implements Client {
   final Dio dio;

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:grasstudy_client/model/user.dart';
+import 'package:grasstudy_client/data/model/user.dart';
 import 'package:meta/meta.dart';
 
 part 'user_event.dart';

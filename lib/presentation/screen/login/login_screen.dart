@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:grasstudy_client/color/light_color.dart';
-import 'package:grasstudy_client/components/logo.dart';
+import 'package:grasstudy_client/presentation/color/light_color.dart';
+import 'package:grasstudy_client/presentation/components/logo.dart';
 import 'package:go_router/go_router.dart';
-import 'package:grasstudy_client/screen/login/components/app_form.dart';
-import 'package:grasstudy_client/screen/login/components/filled_button.dart';
-import 'package:grasstudy_client/screen/login/register/register_screen.dart';
+import 'package:grasstudy_client/presentation/screen/login/components/app_form.dart';
+import 'package:grasstudy_client/presentation/screen/login/components/filled_button.dart';
+import 'package:grasstudy_client/presentation/screen/login/register/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});

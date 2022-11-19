@@ -2,11 +2,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:grasstudy_client/bloc/register/register_bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_bloc.dart';
-import 'package:grasstudy_client/screen/home/home_screen.dart';
-import 'package:grasstudy_client/screen/login/login_screen.dart';
-import 'package:grasstudy_client/screen/login/register/register_screen.dart';
-import 'package:grasstudy_client/screen/splash_screen.dart';
-import 'package:grasstudy_client/screen/user_info/user_screen.dart';
+import 'package:grasstudy_client/presentation/screen/home/home_screen.dart';
+import 'package:grasstudy_client/presentation/screen/login/login_screen.dart';
+import 'package:grasstudy_client/presentation/screen/login/register/register_screen.dart';
+import 'package:grasstudy_client/presentation/screen/splash_screen.dart';
+import 'package:grasstudy_client/presentation/screen/user_info/user_screen.dart';
 
 class GrassRouter {
   final List<String> noLoginRequireds;

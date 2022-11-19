@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grasstudy_client/bloc/route/route_bloc.dart';
-import 'package:grasstudy_client/color/light_color.dart';
+import 'package:grasstudy_client/presentation/color/light_color.dart';
 
 class Grasstudy extends StatelessWidget {
   const Grasstudy({super.key});

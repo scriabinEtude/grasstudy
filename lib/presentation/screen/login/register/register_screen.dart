@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grasstudy_client/bloc/register/register_bloc.dart';
 import 'package:grasstudy_client/bloc/register/register_state.dart';
-import 'package:grasstudy_client/screen/login/components/filled_button.dart';
-import 'package:grasstudy_client/screen/login/register/email_password_screen.dart';
-import 'package:grasstudy_client/screen/login/register/interest_tag_screen.dart';
+import 'package:grasstudy_client/presentation/screen/login/components/filled_button.dart';
+import 'package:grasstudy_client/presentation/screen/login/register/email_password_screen.dart';
+import 'package:grasstudy_client/presentation/screen/login/register/interest_tag_screen.dart';
 import 'package:grasstudy_client/bloc/register/register_event.dart';
 
 class RegisterScreen extends StatefulWidget {

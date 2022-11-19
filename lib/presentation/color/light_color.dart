@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grasstudy_client/color/color_theme.dart';
+import 'package:grasstudy_client/presentation/color/color_theme.dart';
 
 final ColorTheme lightColorTheme = ColorTheme(
   primaryColor: const Color(0xff80ED99),

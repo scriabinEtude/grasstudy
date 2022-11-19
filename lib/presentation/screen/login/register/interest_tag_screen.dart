@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grasstudy_client/color/light_color.dart';
+import 'package:grasstudy_client/presentation/color/light_color.dart';
 
 class InterestTagScreen extends StatefulWidget {
   const InterestTagScreen({super.key});

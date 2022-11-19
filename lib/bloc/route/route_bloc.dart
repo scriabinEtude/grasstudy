@@ -4,8 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:grasstudy_client/bloc/route/route_state.dart';
 import 'package:grasstudy_client/bloc/user/user_bloc.dart';
-import 'package:grasstudy_client/model/user.dart';
-import 'package:grasstudy_client/route.dart';
+import 'package:grasstudy_client/data/model/user.dart';
+import 'package:grasstudy_client/common/config/route.dart';
 
 part 'route_event.dart';
 

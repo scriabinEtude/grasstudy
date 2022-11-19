@@ -1,4 +1,4 @@
-import 'package:grasstudy_client/module/config/app_config_type.dart';
+enum AppConfigType { dev }
 
 class AppConfig {
   final AppConfigType type;

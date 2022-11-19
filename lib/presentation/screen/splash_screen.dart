@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:grasstudy_client/components/logo.dart';
-import 'package:grasstudy_client/screen/home/home_screen.dart';
+import 'package:grasstudy_client/presentation/components/logo.dart';
+import 'package:grasstudy_client/presentation/screen/home/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
