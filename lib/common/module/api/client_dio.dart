@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:dio/dio.dart';
 import 'package:grasstudy_client/common/module/api/client.dart';
 import 'package:grasstudy_client/common/module/api/result.dart';
@@ -15,7 +17,7 @@ class ClientDio implements Client {
   @override
   Future<Result<T>> get<T>({
     required String url,
-    Map<String, String>? queryParameters,
+    Map<String, dynamic>? queryParameters,
     required T Function(Map<String, dynamic> json) parser,
   }) async {
     Response<Map<String, dynamic>> response =
@@ -27,10 +29,18 @@ class ClientDio implements Client {
   @override
   Future<Result<T?>> post<T>({
     required String url,
-    Map<String, String>? data,
+    Map<String, dynamic>? data,
     T Function(Map<String, dynamic> json)? parser,
-  }) {
-    // TODO: implement post
-    throw UnimplementedError();
+  }) async {
+    Response<Map<String, dynamic>> response = await dio.post(url, data: data);
+    if (response.statusCode == 200) {
+      if (parser == null) {
+        return Result<T?>.success(null);
+      } else {
+        return Result<T>.success(parser(response.data!));
+      }
+    } else {
+      return Result.failure(response.statusCode ?? 500, response.statusMessage);
+    }
   }
 }

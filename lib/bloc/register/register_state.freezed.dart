@@ -19,8 +19,10 @@ mixin _$RegisterState {
   bool get loading => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
+  String? get nickname => throw _privateConstructorUsedError;
   List<String> get interestedTags => throw _privateConstructorUsedError;
-  int get screenPageViewIndex => throw _privateConstructorUsedError;
+  List<String> get selectedInterestedTags => throw _privateConstructorUsedError;
+  RegisterPage get page => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterStateCopyWith<RegisterState> get copyWith =>
@@ -37,8 +39,10 @@ abstract class $RegisterStateCopyWith<$Res> {
       {bool loading,
       String? email,
       String? password,
+      String? nickname,
       List<String> interestedTags,
-      int screenPageViewIndex});
+      List<String> selectedInterestedTags,
+      RegisterPage page});
 }
 
 /// @nodoc
@@ -57,8 +61,10 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
     Object? loading = null,
     Object? email = freezed,
     Object? password = freezed,
+    Object? nickname = freezed,
     Object? interestedTags = null,
-    Object? screenPageViewIndex = null,
+    Object? selectedInterestedTags = null,
+    Object? page = null,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
@@ -73,14 +79,22 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      nickname: freezed == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String?,
       interestedTags: null == interestedTags
           ? _value.interestedTags
           : interestedTags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      screenPageViewIndex: null == screenPageViewIndex
-          ? _value.screenPageViewIndex
-          : screenPageViewIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      selectedInterestedTags: null == selectedInterestedTags
+          ? _value.selectedInterestedTags
+          : selectedInterestedTags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as RegisterPage,
     ) as $Val);
   }
 }
@@ -97,8 +111,10 @@ abstract class _$$_RegisterStateCopyWith<$Res>
       {bool loading,
       String? email,
       String? password,
+      String? nickname,
       List<String> interestedTags,
-      int screenPageViewIndex});
+      List<String> selectedInterestedTags,
+      RegisterPage page});
 }
 
 /// @nodoc
@@ -115,8 +131,10 @@ class __$$_RegisterStateCopyWithImpl<$Res>
     Object? loading = null,
     Object? email = freezed,
     Object? password = freezed,
+    Object? nickname = freezed,
     Object? interestedTags = null,
-    Object? screenPageViewIndex = null,
+    Object? selectedInterestedTags = null,
+    Object? page = null,
   }) {
     return _then(_$_RegisterState(
       loading: null == loading
@@ -131,14 +149,22 @@ class __$$_RegisterStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      nickname: freezed == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String?,
       interestedTags: null == interestedTags
           ? _value._interestedTags
           : interestedTags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      screenPageViewIndex: null == screenPageViewIndex
-          ? _value.screenPageViewIndex
-          : screenPageViewIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      selectedInterestedTags: null == selectedInterestedTags
+          ? _value._selectedInterestedTags
+          : selectedInterestedTags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as RegisterPage,
     ));
   }
 }
@@ -150,9 +176,12 @@ class _$_RegisterState extends _RegisterState {
       {this.loading = false,
       this.email,
       this.password,
+      this.nickname,
       final List<String> interestedTags = const [],
-      this.screenPageViewIndex = 0})
+      final List<String> selectedInterestedTags = const [],
+      this.page = RegisterPage.email})
       : _interestedTags = interestedTags,
+        _selectedInterestedTags = selectedInterestedTags,
         super._();
 
   @override
@@ -162,6 +191,8 @@ class _$_RegisterState extends _RegisterState {
   final String? email;
   @override
   final String? password;
+  @override
+  final String? nickname;
   final List<String> _interestedTags;
   @override
   @JsonKey()
@@ -170,13 +201,21 @@ class _$_RegisterState extends _RegisterState {
     return EqualUnmodifiableListView(_interestedTags);
   }
 
+  final List<String> _selectedInterestedTags;
   @override
   @JsonKey()
-  final int screenPageViewIndex;
+  List<String> get selectedInterestedTags {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedInterestedTags);
+  }
+
+  @override
+  @JsonKey()
+  final RegisterPage page;
 
   @override
   String toString() {
-    return 'RegisterState(loading: $loading, email: $email, password: $password, interestedTags: $interestedTags, screenPageViewIndex: $screenPageViewIndex)';
+    return 'RegisterState(loading: $loading, email: $email, password: $password, nickname: $nickname, interestedTags: $interestedTags, selectedInterestedTags: $selectedInterestedTags, page: $page)';
   }
 
   @override
@@ -188,10 +227,13 @@ class _$_RegisterState extends _RegisterState {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
             const DeepCollectionEquality()
                 .equals(other._interestedTags, _interestedTags) &&
-            (identical(other.screenPageViewIndex, screenPageViewIndex) ||
-                other.screenPageViewIndex == screenPageViewIndex));
+            const DeepCollectionEquality().equals(
+                other._selectedInterestedTags, _selectedInterestedTags) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
@@ -200,8 +242,10 @@ class _$_RegisterState extends _RegisterState {
       loading,
       email,
       password,
+      nickname,
       const DeepCollectionEquality().hash(_interestedTags),
-      screenPageViewIndex);
+      const DeepCollectionEquality().hash(_selectedInterestedTags),
+      page);
 
   @JsonKey(ignore: true)
   @override
@@ -215,8 +259,10 @@ abstract class _RegisterState extends RegisterState {
       {final bool loading,
       final String? email,
       final String? password,
+      final String? nickname,
       final List<String> interestedTags,
-      final int screenPageViewIndex}) = _$_RegisterState;
+      final List<String> selectedInterestedTags,
+      final RegisterPage page}) = _$_RegisterState;
   _RegisterState._() : super._();
 
   @override
@@ -226,9 +272,13 @@ abstract class _RegisterState extends RegisterState {
   @override
   String? get password;
   @override
+  String? get nickname;
+  @override
   List<String> get interestedTags;
   @override
-  int get screenPageViewIndex;
+  List<String> get selectedInterestedTags;
+  @override
+  RegisterPage get page;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterStateCopyWith<_$_RegisterState> get copyWith =>

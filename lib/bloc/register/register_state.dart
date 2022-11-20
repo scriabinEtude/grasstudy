@@ -4,6 +4,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'register_state.freezed.dart';
 
+enum RegisterPage {
+  email('이메일로 시작하기'),
+  emailVerification('다음'),
+  nameAndPassword('다음'),
+  interestTags('다음'),
+  welcome('완료');
+
+  final String buttonText;
+
+  const RegisterPage(this.buttonText);
+}
+
 @freezed
 class RegisterState with _$RegisterState {
   const RegisterState._();
@@ -11,18 +23,25 @@ class RegisterState with _$RegisterState {
     @Default(false) bool loading,
     String? email,
     String? password,
+    String? nickname,
     @Default([]) List<String> interestedTags,
-    @Default(0) int screenPageViewIndex,
+    @Default([]) List<String> selectedInterestedTags,
+    @Default(RegisterPage.email) RegisterPage page,
   }) = _RegisterState;
 
   bool get validation {
-    switch (screenPageViewIndex) {
-      case 0:
-        return true;
-      case 1:
-        return interestedTags.isNotEmpty;
-      default:
-        return false;
+    switch (page) {
+      case RegisterPage.email:
+        break;
+      case RegisterPage.emailVerification:
+        break;
+      case RegisterPage.nameAndPassword:
+        break;
+      case RegisterPage.interestTags:
+        break;
+      case RegisterPage.welcome:
+        break;
     }
+    return true;
   }
 }

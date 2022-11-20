@@ -5,10 +5,12 @@ class LoginScreenFilledButton extends StatelessWidget {
   const LoginScreenFilledButton({
     super.key,
     this.enable = true,
+    this.loading = false,
     required this.onPressed,
     required this.text,
   });
   final bool enable;
+  final bool loading;
   final void Function() onPressed;
   final String text;
 
@@ -20,19 +22,28 @@ class LoginScreenFilledButton extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           backgroundColor: lightColorTheme.tertiaryColor,
         ),
-        onPressed: enable ? onPressed : null,
+        onPressed: enable && !loading ? onPressed : null,
         child: SizedBox(
           height: 50,
           width: MediaQuery.of(context).size.width,
           child: Center(
-            child: Text(
-              text,
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
+            child: loading
+                ? const SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                      strokeWidth: 2,
+                    ),
+                  )
+                : Text(
+                    text,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
           ),
         ),
       ),

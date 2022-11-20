@@ -3,5 +3,6 @@ import 'package:grasstudy_client/data/model/user.dart';
 
 abstract class UserRepository {
   Future<Result> register(User user);
-  Future<Result> isDuplicated(String email);
+  Future<Result> isDuplicatedEmail(String email);
+  Future<Result> isDuplicatedNickname(String nickname);
 }

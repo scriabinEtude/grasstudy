@@ -21,6 +21,7 @@ mixin _$RegisterEvent {
     required TResult Function() next,
     required TResult Function(String email) setEmail,
     required TResult Function(String password) setPassword,
+    required TResult Function(String nickname) setNickname,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$RegisterEvent {
     TResult? Function()? next,
     TResult? Function(String email)? setEmail,
     TResult? Function(String password)? setPassword,
+    TResult? Function(String nickname)? setNickname,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$RegisterEvent {
     TResult Function()? next,
     TResult Function(String email)? setEmail,
     TResult Function(String password)? setPassword,
+    TResult Function(String nickname)? setNickname,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$RegisterEvent {
     required TResult Function(RegisterEventNext value) next,
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
+    required TResult Function(RegisterEventSetNickname value) setNickname,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$RegisterEvent {
     TResult? Function(RegisterEventNext value)? next,
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
+    TResult? Function(RegisterEventSetNickname value)? setNickname,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$RegisterEvent {
     TResult Function(RegisterEventNext value)? next,
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
+    TResult Function(RegisterEventSetNickname value)? setNickname,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     required TResult Function() next,
     required TResult Function(String email) setEmail,
     required TResult Function(String password) setPassword,
+    required TResult Function(String nickname) setNickname,
   }) {
     return next();
   }
@@ -131,6 +138,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     TResult? Function()? next,
     TResult? Function(String email)? setEmail,
     TResult? Function(String password)? setPassword,
+    TResult? Function(String nickname)? setNickname,
   }) {
     return next?.call();
   }
@@ -141,6 +149,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     TResult Function()? next,
     TResult Function(String email)? setEmail,
     TResult Function(String password)? setPassword,
+    TResult Function(String nickname)? setNickname,
     required TResult orElse(),
   }) {
     if (next != null) {
@@ -155,6 +164,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     required TResult Function(RegisterEventNext value) next,
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
+    required TResult Function(RegisterEventSetNickname value) setNickname,
   }) {
     return next(this);
   }
@@ -165,6 +175,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     TResult? Function(RegisterEventNext value)? next,
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
+    TResult? Function(RegisterEventSetNickname value)? setNickname,
   }) {
     return next?.call(this);
   }
@@ -175,6 +186,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     TResult Function(RegisterEventNext value)? next,
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
+    TResult Function(RegisterEventSetNickname value)? setNickname,
     required TResult orElse(),
   }) {
     if (next != null) {
@@ -256,6 +268,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     required TResult Function() next,
     required TResult Function(String email) setEmail,
     required TResult Function(String password) setPassword,
+    required TResult Function(String nickname) setNickname,
   }) {
     return setEmail(email);
   }
@@ -266,6 +279,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     TResult? Function()? next,
     TResult? Function(String email)? setEmail,
     TResult? Function(String password)? setPassword,
+    TResult? Function(String nickname)? setNickname,
   }) {
     return setEmail?.call(email);
   }
@@ -276,6 +290,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     TResult Function()? next,
     TResult Function(String email)? setEmail,
     TResult Function(String password)? setPassword,
+    TResult Function(String nickname)? setNickname,
     required TResult orElse(),
   }) {
     if (setEmail != null) {
@@ -290,6 +305,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     required TResult Function(RegisterEventNext value) next,
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
+    required TResult Function(RegisterEventSetNickname value) setNickname,
   }) {
     return setEmail(this);
   }
@@ -300,6 +316,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     TResult? Function(RegisterEventNext value)? next,
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
+    TResult? Function(RegisterEventSetNickname value)? setNickname,
   }) {
     return setEmail?.call(this);
   }
@@ -310,6 +327,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     TResult Function(RegisterEventNext value)? next,
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
+    TResult Function(RegisterEventSetNickname value)? setNickname,
     required TResult orElse(),
   }) {
     if (setEmail != null) {
@@ -399,6 +417,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     required TResult Function() next,
     required TResult Function(String email) setEmail,
     required TResult Function(String password) setPassword,
+    required TResult Function(String nickname) setNickname,
   }) {
     return setPassword(password);
   }
@@ -409,6 +428,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     TResult? Function()? next,
     TResult? Function(String email)? setEmail,
     TResult? Function(String password)? setPassword,
+    TResult? Function(String nickname)? setNickname,
   }) {
     return setPassword?.call(password);
   }
@@ -419,6 +439,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     TResult Function()? next,
     TResult Function(String email)? setEmail,
     TResult Function(String password)? setPassword,
+    TResult Function(String nickname)? setNickname,
     required TResult orElse(),
   }) {
     if (setPassword != null) {
@@ -433,6 +454,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     required TResult Function(RegisterEventNext value) next,
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
+    required TResult Function(RegisterEventSetNickname value) setNickname,
   }) {
     return setPassword(this);
   }
@@ -443,6 +465,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     TResult? Function(RegisterEventNext value)? next,
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
+    TResult? Function(RegisterEventSetNickname value)? setNickname,
   }) {
     return setPassword?.call(this);
   }
@@ -453,6 +476,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     TResult Function(RegisterEventNext value)? next,
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
+    TResult Function(RegisterEventSetNickname value)? setNickname,
     required TResult orElse(),
   }) {
     if (setPassword != null) {
@@ -469,5 +493,154 @@ abstract class RegisterEventSetPassword implements RegisterEvent {
   String get password;
   @JsonKey(ignore: true)
   _$$RegisterEventSetPasswordCopyWith<_$RegisterEventSetPassword>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RegisterEventSetNicknameCopyWith<$Res> {
+  factory _$$RegisterEventSetNicknameCopyWith(_$RegisterEventSetNickname value,
+          $Res Function(_$RegisterEventSetNickname) then) =
+      __$$RegisterEventSetNicknameCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String nickname});
+}
+
+/// @nodoc
+class __$$RegisterEventSetNicknameCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res, _$RegisterEventSetNickname>
+    implements _$$RegisterEventSetNicknameCopyWith<$Res> {
+  __$$RegisterEventSetNicknameCopyWithImpl(_$RegisterEventSetNickname _value,
+      $Res Function(_$RegisterEventSetNickname) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nickname = null,
+  }) {
+    return _then(_$RegisterEventSetNickname(
+      null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RegisterEventSetNickname implements RegisterEventSetNickname {
+  const _$RegisterEventSetNickname(this.nickname);
+
+  @override
+  final String nickname;
+
+  @override
+  String toString() {
+    return 'RegisterEvent.setNickname(nickname: $nickname)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegisterEventSetNickname &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nickname);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RegisterEventSetNicknameCopyWith<_$RegisterEventSetNickname>
+      get copyWith =>
+          __$$RegisterEventSetNicknameCopyWithImpl<_$RegisterEventSetNickname>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() next,
+    required TResult Function(String email) setEmail,
+    required TResult Function(String password) setPassword,
+    required TResult Function(String nickname) setNickname,
+  }) {
+    return setNickname(nickname);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? next,
+    TResult? Function(String email)? setEmail,
+    TResult? Function(String password)? setPassword,
+    TResult? Function(String nickname)? setNickname,
+  }) {
+    return setNickname?.call(nickname);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? next,
+    TResult Function(String email)? setEmail,
+    TResult Function(String password)? setPassword,
+    TResult Function(String nickname)? setNickname,
+    required TResult orElse(),
+  }) {
+    if (setNickname != null) {
+      return setNickname(nickname);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RegisterEventNext value) next,
+    required TResult Function(RegisterEventSetEmail value) setEmail,
+    required TResult Function(RegisterEventSetPassword value) setPassword,
+    required TResult Function(RegisterEventSetNickname value) setNickname,
+  }) {
+    return setNickname(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RegisterEventNext value)? next,
+    TResult? Function(RegisterEventSetEmail value)? setEmail,
+    TResult? Function(RegisterEventSetPassword value)? setPassword,
+    TResult? Function(RegisterEventSetNickname value)? setNickname,
+  }) {
+    return setNickname?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RegisterEventNext value)? next,
+    TResult Function(RegisterEventSetEmail value)? setEmail,
+    TResult Function(RegisterEventSetPassword value)? setPassword,
+    TResult Function(RegisterEventSetNickname value)? setNickname,
+    required TResult orElse(),
+  }) {
+    if (setNickname != null) {
+      return setNickname(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RegisterEventSetNickname implements RegisterEvent {
+  const factory RegisterEventSetNickname(final String nickname) =
+      _$RegisterEventSetNickname;
+
+  String get nickname;
+  @JsonKey(ignore: true)
+  _$$RegisterEventSetNicknameCopyWith<_$RegisterEventSetNickname>
       get copyWith => throw _privateConstructorUsedError;
 }

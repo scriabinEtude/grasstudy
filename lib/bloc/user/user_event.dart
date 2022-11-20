@@ -1,4 +1,7 @@
-part of 'user_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'user_event.freezed.dart';
 
-@immutable
-abstract class UserEvent {}
+@freezed
+class UserEvent with _$UserEvent {
+  const factory UserEvent.login() = UserEventLogin;
+}

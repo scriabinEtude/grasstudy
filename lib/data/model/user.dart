@@ -7,8 +7,9 @@ part 'user.g.dart';
 abstract class User with _$User {
   factory User({
     required String email,
+    required String nickname,
     required String password,
-    required List<String> interestTags,
+    List<String>? interestTags,
   }) = _User;
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

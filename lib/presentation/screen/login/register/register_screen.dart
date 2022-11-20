@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grasstudy_client/bloc/register/register_bloc.dart';
 import 'package:grasstudy_client/bloc/register/register_state.dart';
 import 'package:grasstudy_client/presentation/screen/login/components/filled_button.dart';
-import 'package:grasstudy_client/presentation/screen/login/register/email_password_screen.dart';
+import 'package:grasstudy_client/presentation/screen/login/register/email_screen.dart';
+import 'package:grasstudy_client/presentation/screen/login/register/email_verification_screen.dart';
 import 'package:grasstudy_client/presentation/screen/login/register/interest_tag_screen.dart';
 import 'package:grasstudy_client/bloc/register/register_event.dart';
+import 'package:grasstudy_client/presentation/screen/login/register/name_password_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -31,30 +33,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(),
-        floatingActionButton: BlocSelector<RegisterBloc, RegisterState, bool>(
-            selector: (state) => state.validation,
-            builder: (context, validation) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: LoginScreenFilledButton(
-                  onPressed: () {
-                    BlocProvider.of<RegisterBloc>(context)
-                        .add(RegisterEvent.next());
-                  },
-                  text: "다음",
-                  enable: validation,
-                ),
-              );
-            }),
+        floatingActionButton: BlocBuilder<RegisterBloc, RegisterState>(
+            buildWhen: (previous, current) {
+          return previous.validation != current.validation ||
+              previous.page != current.page ||
+              previous.loading != current.loading;
+        }, builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: LoginScreenFilledButton(
+              onPressed: () {
+                BlocProvider.of<RegisterBloc>(context)
+                    .add(const RegisterEvent.next());
+              },
+              text: state.page.buttonText,
+              enable: state.validation,
+              loading: state.loading,
+            ),
+          );
+        }),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: BlocListener<RegisterBloc, RegisterState>(
-            listenWhen: (previous, current) =>
-                previous.screenPageViewIndex != current.screenPageViewIndex,
+            listenWhen: (previous, current) => previous.page != current.page,
             listener: (context, state) {
               controller.animateToPage(
-                state.screenPageViewIndex,
+                state.page.index,
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeOutExpo,
               );
@@ -62,7 +67,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: PageView(
               controller: controller,
               children: [
-                EmailPasswordScreen(),
+                EmailScreen(),
+                const EmailVerificationScreen(),
+                NameAndPasswordScreen(),
                 InterestTagScreen(),
               ],
             ),
