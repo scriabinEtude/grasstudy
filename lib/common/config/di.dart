@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:grasstudy_client/common/module/api/client.dart';
-import 'package:grasstudy_client/common/module/api/client_dio.dart';
+import 'package:grasstudy_client/common/module/api/client_dio/client_dio.dart';
 import 'package:grasstudy_client/data/repository/tag/tag_repository.dart';
 import 'package:grasstudy_client/data/repository/tag/tag_repository_test.dart';
 import 'package:grasstudy_client/data/repository/user/user_repository.dart';

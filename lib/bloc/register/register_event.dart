@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:grasstudy_client/data/model/tag.dart';
 
 part 'register_event.freezed.dart';
 
@@ -10,4 +11,5 @@ class RegisterEvent with _$RegisterEvent {
       RegisterEventSetPassword;
   const factory RegisterEvent.setNickname(String nickname) =
       RegisterEventSetNickname;
+  const factory RegisterEvent.selectTag(Tag tag) = RegisterEventTag;
 }

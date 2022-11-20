@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:grasstudy_client/bloc/register/register_event.dart';
 import 'package:grasstudy_client/common/config/di.dart';
 import 'package:grasstudy_client/common/module/api/result.dart';
+import 'package:grasstudy_client/data/model/tag.dart';
 import 'package:grasstudy_client/data/model/user.dart';
 import 'package:grasstudy_client/data/repository/tag/tag_repository.dart';
 import 'package:grasstudy_client/data/repository/user/user_repository.dart';
@@ -49,7 +52,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           }
 
           try {
-            final Result result = await _tagRepository.getTagsForRegist();
+            final Result<List<Tag>> result =
+                await _tagRepository.getTagsForRegist();
             result.map(
               success: (result) => emit(state.copyWith(
                 interestedTags: result.data,
@@ -62,11 +66,12 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
               page: RegisterPage.welcome,
             ));
           }
+
+          emit(state.copyWith(
+            page: RegisterPage.interestTags,
+            loading: false,
+          ));
         }
-        emit(state.copyWith(
-          page: RegisterPage.interestTags,
-          loading: false,
-        ));
         break;
       case RegisterPage.interestTags:
         break;

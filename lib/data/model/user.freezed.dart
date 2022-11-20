@@ -23,7 +23,7 @@ mixin _$User {
   String get email => throw _privateConstructorUsedError;
   String get nickname => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  List<String>? get interestTags => throw _privateConstructorUsedError;
+  List<Tag>? get interestTags => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +39,7 @@ abstract class $UserCopyWith<$Res> {
       {String email,
       String nickname,
       String password,
-      List<String>? interestTags});
+      List<Tag>? interestTags});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       interestTags: freezed == interestTags
           ? _value.interestTags
           : interestTags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<Tag>?,
     ) as $Val);
   }
 }
@@ -91,7 +91,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       {String email,
       String nickname,
       String password,
-      List<String>? interestTags});
+      List<Tag>? interestTags});
 }
 
 /// @nodoc
@@ -124,7 +124,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
       interestTags: freezed == interestTags
           ? _value._interestTags
           : interestTags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<Tag>?,
     ));
   }
 }
@@ -136,7 +136,7 @@ class _$_User implements _User {
       {required this.email,
       required this.nickname,
       required this.password,
-      final List<String>? interestTags})
+      final List<Tag>? interestTags})
       : _interestTags = interestTags;
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
@@ -147,9 +147,9 @@ class _$_User implements _User {
   final String nickname;
   @override
   final String password;
-  final List<String>? _interestTags;
+  final List<Tag>? _interestTags;
   @override
-  List<String>? get interestTags {
+  List<Tag>? get interestTags {
     final value = _interestTags;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
@@ -199,7 +199,7 @@ abstract class _User implements User {
       {required final String email,
       required final String nickname,
       required final String password,
-      final List<String>? interestTags}) = _$_User;
+      final List<Tag>? interestTags}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -210,7 +210,7 @@ abstract class _User implements User {
   @override
   String get password;
   @override
-  List<String>? get interestTags;
+  List<Tag>? get interestTags;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

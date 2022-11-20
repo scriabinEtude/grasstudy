@@ -89,30 +89,13 @@ class __$$_TagCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$_Tag>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Tag implements _Tag {
-  const _$_Tag({required this.id});
+class _$_Tag extends _Tag {
+  const _$_Tag({required this.id}) : super._();
 
   factory _$_Tag.fromJson(Map<String, dynamic> json) => _$$_TagFromJson(json);
 
   @override
   final String id;
-
-  @override
-  String toString() {
-    return 'Tag(id: $id)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Tag &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
@@ -128,8 +111,9 @@ class _$_Tag implements _Tag {
   }
 }
 
-abstract class _Tag implements Tag {
+abstract class _Tag extends Tag {
   const factory _Tag({required final String id}) = _$_Tag;
+  const _Tag._() : super._();
 
   factory _Tag.fromJson(Map<String, dynamic> json) = _$_Tag.fromJson;
 

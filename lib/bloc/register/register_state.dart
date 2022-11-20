@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grasstudy_client/data/model/tag.dart';
 import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -24,8 +25,8 @@ class RegisterState with _$RegisterState {
     String? email,
     String? password,
     String? nickname,
-    @Default([]) List<String> interestedTags,
-    @Default([]) List<String> selectedInterestedTags,
+    @Default([]) List<Tag> interestedTags,
+    @Default([]) List<Tag> selectedInterestedTags,
     @Default(RegisterPage.email) RegisterPage page,
   }) = _RegisterState;
 

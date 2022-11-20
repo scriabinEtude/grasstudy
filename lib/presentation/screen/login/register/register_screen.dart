@@ -66,6 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             },
             child: PageView(
               controller: controller,
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 EmailScreen(),
                 const EmailVerificationScreen(),

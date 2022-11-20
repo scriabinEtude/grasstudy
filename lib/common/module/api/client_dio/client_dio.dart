@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:dio/dio.dart';
 import 'package:grasstudy_client/common/module/api/client.dart';
+import 'package:grasstudy_client/common/module/api/client_dio/client_dio_interceptors.dart';
 import 'package:grasstudy_client/common/module/api/result.dart';
 
 class ClientDio implements Client {
@@ -12,7 +11,7 @@ class ClientDio implements Client {
           BaseOptions(
             baseUrl: baseUrl,
           ),
-        );
+        )..interceptors.addAll(dio_interceptors);
 
   @override
   Future<Result<T>> get<T>({

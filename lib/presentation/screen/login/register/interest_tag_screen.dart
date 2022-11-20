@@ -1,47 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grasstudy_client/bloc/register/register_bloc.dart';
+import 'package:grasstudy_client/bloc/register/register_event.dart';
+import 'package:grasstudy_client/bloc/register/register_state.dart';
+import 'package:grasstudy_client/data/model/tag.dart';
 import 'package:grasstudy_client/presentation/color/light_color.dart';
 
-class InterestTagScreen extends StatefulWidget {
+class InterestTagScreen extends StatelessWidget {
   const InterestTagScreen({super.key});
 
   @override
-  State<InterestTagScreen> createState() => _InterestTagScreenState();
-}
-
-class _InterestTagScreenState extends State<InterestTagScreen> {
-  @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        const Text(
-          '관심 주제',
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 15),
-        const Text(
-          '관심 있는 주제를 선택해 주세요. 항목이 없으면 주제를 생성할 수 있습니다.',
-          style: TextStyle(
-            fontSize: 20,
-          ),
-        ),
-        const SizedBox(height: 15),
-        Wrap(
-          children: const [
-            _Tag(
-              selected: false,
-              tag: "주제1",
+    return BlocBuilder<RegisterBloc, RegisterState>(builder: (context, state) {
+      return ListView(
+        children: [
+          const Text(
+            '관심 주제',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
             ),
-            _Tag(
-              selected: true,
-              tag: "주제2",
+          ),
+          const SizedBox(height: 15),
+          const Text(
+            '관심 있는 주제를 선택해 주세요. 항목이 없으면 주제를 생성할 수 있습니다.',
+            style: TextStyle(
+              fontSize: 20,
             ),
-          ],
-        ),
-      ],
-    );
+          ),
+          const SizedBox(height: 15),
+          Wrap(
+              children: state.interestedTags
+                  .map((tag) => _Tag(
+                        selected: state.selectedInterestedTags.contains(tag),
+                        tag: tag,
+                      ))
+                  .toList()),
+        ],
+      );
+    });
   }
 }
 
@@ -53,25 +50,31 @@ class _Tag extends StatelessWidget {
   }) : super(key: key);
 
   final bool selected;
-  final String tag;
+  final Tag tag;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 5, 10, 0),
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: lightColorTheme.tertiaryColor,
+    return InkWell(
+      onTap: () {
+        BlocProvider.of<RegisterBloc>(context)
+            .add(RegisterEvent.selectTag(tag));
+      },
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: lightColorTheme.tertiaryColor,
+          ),
+          borderRadius: BorderRadius.circular(30),
+          color: selected ? lightColorTheme.tertiaryColor : Colors.white,
         ),
-        borderRadius: BorderRadius.circular(30),
-        color: selected ? lightColorTheme.tertiaryColor : Colors.white,
-      ),
-      child: Text(
-        tag,
-        style: TextStyle(
-          fontSize: 18,
-          color: selected ? Colors.white : Colors.black,
+        child: Text(
+          tag.id,
+          style: TextStyle(
+            fontSize: 18,
+            color: selected ? Colors.white : Colors.black,
+          ),
         ),
       ),
     );

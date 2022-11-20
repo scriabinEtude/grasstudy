@@ -11,7 +11,7 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       nickname: json['nickname'] as String,
       password: json['password'] as String,
       interestTags: (json['interestTags'] as List<dynamic>?)
-          ?.map((e) => e as String)
+          ?.map((e) => Tag.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

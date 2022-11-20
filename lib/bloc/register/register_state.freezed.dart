@@ -20,8 +20,8 @@ mixin _$RegisterState {
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String? get nickname => throw _privateConstructorUsedError;
-  List<String> get interestedTags => throw _privateConstructorUsedError;
-  List<String> get selectedInterestedTags => throw _privateConstructorUsedError;
+  List<Tag> get interestedTags => throw _privateConstructorUsedError;
+  List<Tag> get selectedInterestedTags => throw _privateConstructorUsedError;
   RegisterPage get page => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -40,8 +40,8 @@ abstract class $RegisterStateCopyWith<$Res> {
       String? email,
       String? password,
       String? nickname,
-      List<String> interestedTags,
-      List<String> selectedInterestedTags,
+      List<Tag> interestedTags,
+      List<Tag> selectedInterestedTags,
       RegisterPage page});
 }
 
@@ -86,11 +86,11 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
       interestedTags: null == interestedTags
           ? _value.interestedTags
           : interestedTags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Tag>,
       selectedInterestedTags: null == selectedInterestedTags
           ? _value.selectedInterestedTags
           : selectedInterestedTags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Tag>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -112,8 +112,8 @@ abstract class _$$_RegisterStateCopyWith<$Res>
       String? email,
       String? password,
       String? nickname,
-      List<String> interestedTags,
-      List<String> selectedInterestedTags,
+      List<Tag> interestedTags,
+      List<Tag> selectedInterestedTags,
       RegisterPage page});
 }
 
@@ -156,11 +156,11 @@ class __$$_RegisterStateCopyWithImpl<$Res>
       interestedTags: null == interestedTags
           ? _value._interestedTags
           : interestedTags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Tag>,
       selectedInterestedTags: null == selectedInterestedTags
           ? _value._selectedInterestedTags
           : selectedInterestedTags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Tag>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -177,8 +177,8 @@ class _$_RegisterState extends _RegisterState {
       this.email,
       this.password,
       this.nickname,
-      final List<String> interestedTags = const [],
-      final List<String> selectedInterestedTags = const [],
+      final List<Tag> interestedTags = const [],
+      final List<Tag> selectedInterestedTags = const [],
       this.page = RegisterPage.email})
       : _interestedTags = interestedTags,
         _selectedInterestedTags = selectedInterestedTags,
@@ -193,18 +193,18 @@ class _$_RegisterState extends _RegisterState {
   final String? password;
   @override
   final String? nickname;
-  final List<String> _interestedTags;
+  final List<Tag> _interestedTags;
   @override
   @JsonKey()
-  List<String> get interestedTags {
+  List<Tag> get interestedTags {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_interestedTags);
   }
 
-  final List<String> _selectedInterestedTags;
+  final List<Tag> _selectedInterestedTags;
   @override
   @JsonKey()
-  List<String> get selectedInterestedTags {
+  List<Tag> get selectedInterestedTags {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_selectedInterestedTags);
   }
@@ -260,8 +260,8 @@ abstract class _RegisterState extends RegisterState {
       final String? email,
       final String? password,
       final String? nickname,
-      final List<String> interestedTags,
-      final List<String> selectedInterestedTags,
+      final List<Tag> interestedTags,
+      final List<Tag> selectedInterestedTags,
       final RegisterPage page}) = _$_RegisterState;
   _RegisterState._() : super._();
 
@@ -274,9 +274,9 @@ abstract class _RegisterState extends RegisterState {
   @override
   String? get nickname;
   @override
-  List<String> get interestedTags;
+  List<Tag> get interestedTags;
   @override
-  List<String> get selectedInterestedTags;
+  List<Tag> get selectedInterestedTags;
   @override
   RegisterPage get page;
   @override
