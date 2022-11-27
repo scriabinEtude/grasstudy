@@ -50,7 +50,7 @@ mixin _$RegisterEvent {
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
     required TResult Function(RegisterEventSetNickname value) setNickname,
-    required TResult Function(RegisterEventTag value) selectTag,
+    required TResult Function(RegisterEventTagSelect value) selectTag,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +59,7 @@ mixin _$RegisterEvent {
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
     TResult? Function(RegisterEventSetNickname value)? setNickname,
-    TResult? Function(RegisterEventTag value)? selectTag,
+    TResult? Function(RegisterEventTagSelect value)? selectTag,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +68,7 @@ mixin _$RegisterEvent {
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
     TResult Function(RegisterEventSetNickname value)? setNickname,
-    TResult Function(RegisterEventTag value)? selectTag,
+    TResult Function(RegisterEventTagSelect value)? selectTag,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,7 +174,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
     required TResult Function(RegisterEventSetNickname value) setNickname,
-    required TResult Function(RegisterEventTag value) selectTag,
+    required TResult Function(RegisterEventTagSelect value) selectTag,
   }) {
     return next(this);
   }
@@ -186,7 +186,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
     TResult? Function(RegisterEventSetNickname value)? setNickname,
-    TResult? Function(RegisterEventTag value)? selectTag,
+    TResult? Function(RegisterEventTagSelect value)? selectTag,
   }) {
     return next?.call(this);
   }
@@ -198,7 +198,7 @@ class _$RegisterEventNext implements RegisterEventNext {
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
     TResult Function(RegisterEventSetNickname value)? setNickname,
-    TResult Function(RegisterEventTag value)? selectTag,
+    TResult Function(RegisterEventTagSelect value)? selectTag,
     required TResult orElse(),
   }) {
     if (next != null) {
@@ -321,7 +321,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
     required TResult Function(RegisterEventSetNickname value) setNickname,
-    required TResult Function(RegisterEventTag value) selectTag,
+    required TResult Function(RegisterEventTagSelect value) selectTag,
   }) {
     return setEmail(this);
   }
@@ -333,7 +333,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
     TResult? Function(RegisterEventSetNickname value)? setNickname,
-    TResult? Function(RegisterEventTag value)? selectTag,
+    TResult? Function(RegisterEventTagSelect value)? selectTag,
   }) {
     return setEmail?.call(this);
   }
@@ -345,7 +345,7 @@ class _$RegisterEventSetEmail implements RegisterEventSetEmail {
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
     TResult Function(RegisterEventSetNickname value)? setNickname,
-    TResult Function(RegisterEventTag value)? selectTag,
+    TResult Function(RegisterEventTagSelect value)? selectTag,
     required TResult orElse(),
   }) {
     if (setEmail != null) {
@@ -476,7 +476,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
     required TResult Function(RegisterEventSetNickname value) setNickname,
-    required TResult Function(RegisterEventTag value) selectTag,
+    required TResult Function(RegisterEventTagSelect value) selectTag,
   }) {
     return setPassword(this);
   }
@@ -488,7 +488,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
     TResult? Function(RegisterEventSetNickname value)? setNickname,
-    TResult? Function(RegisterEventTag value)? selectTag,
+    TResult? Function(RegisterEventTagSelect value)? selectTag,
   }) {
     return setPassword?.call(this);
   }
@@ -500,7 +500,7 @@ class _$RegisterEventSetPassword implements RegisterEventSetPassword {
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
     TResult Function(RegisterEventSetNickname value)? setNickname,
-    TResult Function(RegisterEventTag value)? selectTag,
+    TResult Function(RegisterEventTagSelect value)? selectTag,
     required TResult orElse(),
   }) {
     if (setPassword != null) {
@@ -631,7 +631,7 @@ class _$RegisterEventSetNickname implements RegisterEventSetNickname {
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
     required TResult Function(RegisterEventSetNickname value) setNickname,
-    required TResult Function(RegisterEventTag value) selectTag,
+    required TResult Function(RegisterEventTagSelect value) selectTag,
   }) {
     return setNickname(this);
   }
@@ -643,7 +643,7 @@ class _$RegisterEventSetNickname implements RegisterEventSetNickname {
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
     TResult? Function(RegisterEventSetNickname value)? setNickname,
-    TResult? Function(RegisterEventTag value)? selectTag,
+    TResult? Function(RegisterEventTagSelect value)? selectTag,
   }) {
     return setNickname?.call(this);
   }
@@ -655,7 +655,7 @@ class _$RegisterEventSetNickname implements RegisterEventSetNickname {
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
     TResult Function(RegisterEventSetNickname value)? setNickname,
-    TResult Function(RegisterEventTag value)? selectTag,
+    TResult Function(RegisterEventTagSelect value)? selectTag,
     required TResult orElse(),
   }) {
     if (setNickname != null) {
@@ -676,10 +676,10 @@ abstract class RegisterEventSetNickname implements RegisterEvent {
 }
 
 /// @nodoc
-abstract class _$$RegisterEventTagCopyWith<$Res> {
-  factory _$$RegisterEventTagCopyWith(
-          _$RegisterEventTag value, $Res Function(_$RegisterEventTag) then) =
-      __$$RegisterEventTagCopyWithImpl<$Res>;
+abstract class _$$RegisterEventTagSelectCopyWith<$Res> {
+  factory _$$RegisterEventTagSelectCopyWith(_$RegisterEventTagSelect value,
+          $Res Function(_$RegisterEventTagSelect) then) =
+      __$$RegisterEventTagSelectCopyWithImpl<$Res>;
   @useResult
   $Res call({Tag tag});
 
@@ -687,11 +687,11 @@ abstract class _$$RegisterEventTagCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RegisterEventTagCopyWithImpl<$Res>
-    extends _$RegisterEventCopyWithImpl<$Res, _$RegisterEventTag>
-    implements _$$RegisterEventTagCopyWith<$Res> {
-  __$$RegisterEventTagCopyWithImpl(
-      _$RegisterEventTag _value, $Res Function(_$RegisterEventTag) _then)
+class __$$RegisterEventTagSelectCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res, _$RegisterEventTagSelect>
+    implements _$$RegisterEventTagSelectCopyWith<$Res> {
+  __$$RegisterEventTagSelectCopyWithImpl(_$RegisterEventTagSelect _value,
+      $Res Function(_$RegisterEventTagSelect) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -699,7 +699,7 @@ class __$$RegisterEventTagCopyWithImpl<$Res>
   $Res call({
     Object? tag = null,
   }) {
-    return _then(_$RegisterEventTag(
+    return _then(_$RegisterEventTagSelect(
       null == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
@@ -718,8 +718,8 @@ class __$$RegisterEventTagCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RegisterEventTag implements RegisterEventTag {
-  const _$RegisterEventTag(this.tag);
+class _$RegisterEventTagSelect implements RegisterEventTagSelect {
+  const _$RegisterEventTagSelect(this.tag);
 
   @override
   final Tag tag;
@@ -733,7 +733,7 @@ class _$RegisterEventTag implements RegisterEventTag {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RegisterEventTag &&
+            other is _$RegisterEventTagSelect &&
             (identical(other.tag, tag) || other.tag == tag));
   }
 
@@ -743,8 +743,9 @@ class _$RegisterEventTag implements RegisterEventTag {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RegisterEventTagCopyWith<_$RegisterEventTag> get copyWith =>
-      __$$RegisterEventTagCopyWithImpl<_$RegisterEventTag>(this, _$identity);
+  _$$RegisterEventTagSelectCopyWith<_$RegisterEventTagSelect> get copyWith =>
+      __$$RegisterEventTagSelectCopyWithImpl<_$RegisterEventTagSelect>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -793,7 +794,7 @@ class _$RegisterEventTag implements RegisterEventTag {
     required TResult Function(RegisterEventSetEmail value) setEmail,
     required TResult Function(RegisterEventSetPassword value) setPassword,
     required TResult Function(RegisterEventSetNickname value) setNickname,
-    required TResult Function(RegisterEventTag value) selectTag,
+    required TResult Function(RegisterEventTagSelect value) selectTag,
   }) {
     return selectTag(this);
   }
@@ -805,7 +806,7 @@ class _$RegisterEventTag implements RegisterEventTag {
     TResult? Function(RegisterEventSetEmail value)? setEmail,
     TResult? Function(RegisterEventSetPassword value)? setPassword,
     TResult? Function(RegisterEventSetNickname value)? setNickname,
-    TResult? Function(RegisterEventTag value)? selectTag,
+    TResult? Function(RegisterEventTagSelect value)? selectTag,
   }) {
     return selectTag?.call(this);
   }
@@ -817,7 +818,7 @@ class _$RegisterEventTag implements RegisterEventTag {
     TResult Function(RegisterEventSetEmail value)? setEmail,
     TResult Function(RegisterEventSetPassword value)? setPassword,
     TResult Function(RegisterEventSetNickname value)? setNickname,
-    TResult Function(RegisterEventTag value)? selectTag,
+    TResult Function(RegisterEventTagSelect value)? selectTag,
     required TResult orElse(),
   }) {
     if (selectTag != null) {
@@ -827,11 +828,12 @@ class _$RegisterEventTag implements RegisterEventTag {
   }
 }
 
-abstract class RegisterEventTag implements RegisterEvent {
-  const factory RegisterEventTag(final Tag tag) = _$RegisterEventTag;
+abstract class RegisterEventTagSelect implements RegisterEvent {
+  const factory RegisterEventTagSelect(final Tag tag) =
+      _$RegisterEventTagSelect;
 
   Tag get tag;
   @JsonKey(ignore: true)
-  _$$RegisterEventTagCopyWith<_$RegisterEventTag> get copyWith =>
+  _$$RegisterEventTagSelectCopyWith<_$RegisterEventTagSelect> get copyWith =>
       throw _privateConstructorUsedError;
 }

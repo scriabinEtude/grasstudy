@@ -9,7 +9,7 @@ part of 'user.dart';
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       email: json['email'] as String,
       nickname: json['nickname'] as String,
-      password: json['password'] as String,
+      password: json['password'] as String?,
       interestTags: (json['interestTags'] as List<dynamic>?)
           ?.map((e) => Tag.fromJson(e as Map<String, dynamic>))
           .toList(),

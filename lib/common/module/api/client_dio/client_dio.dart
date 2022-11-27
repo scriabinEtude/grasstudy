@@ -26,20 +26,35 @@ class ClientDio implements Client {
   }
 
   @override
-  Future<Result<T?>> post<T>({
+  Future<Result> post({
     required String url,
     Map<String, dynamic>? data,
-    T Function(Map<String, dynamic> json)? parser,
   }) async {
     Response<Map<String, dynamic>> response = await dio.post(url, data: data);
     if (response.statusCode == 200) {
-      if (parser == null) {
-        return Result<T?>.success(null);
-      } else {
-        return Result<T>.success(parser(response.data!));
-      }
+      return Result.success(null);
     } else {
       return Result.failure(response.statusCode ?? 500, response.statusMessage);
+    }
+  }
+
+  @override
+  Future<Result<T>> postParser<T>({
+    required String url,
+    Map<String, dynamic>? data,
+    required T Function(Map<String, dynamic> json) parser,
+  }) async {
+    try {
+      Response<Map<String, dynamic>> response = await dio.post(url, data: data);
+      if (response.statusCode == 200) {
+        return Result<T>.success(parser(response.data!));
+      } else {
+        return Result.failure(
+            response.statusCode ?? 500, response.statusMessage);
+      }
+    } catch (e) {
+      print(e);
+      return Result.failure(500, e.toString());
     }
   }
 }

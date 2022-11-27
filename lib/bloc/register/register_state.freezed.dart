@@ -16,13 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterState {
-  bool get loading => throw _privateConstructorUsedError;
+  Status get status => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String? get nickname => throw _privateConstructorUsedError;
   List<Tag> get interestedTags => throw _privateConstructorUsedError;
   List<Tag> get selectedInterestedTags => throw _privateConstructorUsedError;
   RegisterPage get page => throw _privateConstructorUsedError;
+  bool get done => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterStateCopyWith<RegisterState> get copyWith =>
@@ -36,13 +38,18 @@ abstract class $RegisterStateCopyWith<$Res> {
       _$RegisterStateCopyWithImpl<$Res, RegisterState>;
   @useResult
   $Res call(
-      {bool loading,
+      {Status status,
+      User? user,
       String? email,
       String? password,
       String? nickname,
       List<Tag> interestedTags,
       List<Tag> selectedInterestedTags,
-      RegisterPage page});
+      RegisterPage page,
+      bool done});
+
+  $StatusCopyWith<$Res> get status;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -58,19 +65,25 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? loading = null,
+    Object? status = null,
+    Object? user = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? nickname = freezed,
     Object? interestedTags = null,
     Object? selectedInterestedTags = null,
     Object? page = null,
+    Object? done = null,
   }) {
     return _then(_value.copyWith(
-      loading: null == loading
-          ? _value.loading
-          : loading // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -95,7 +108,31 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as RegisterPage,
+      done: null == done
+          ? _value.done
+          : done // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StatusCopyWith<$Res> get status {
+    return $StatusCopyWith<$Res>(_value.status, (value) {
+      return _then(_value.copyWith(status: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
   }
 }
 
@@ -108,13 +145,20 @@ abstract class _$$_RegisterStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool loading,
+      {Status status,
+      User? user,
       String? email,
       String? password,
       String? nickname,
       List<Tag> interestedTags,
       List<Tag> selectedInterestedTags,
-      RegisterPage page});
+      RegisterPage page,
+      bool done});
+
+  @override
+  $StatusCopyWith<$Res> get status;
+  @override
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -128,19 +172,25 @@ class __$$_RegisterStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? loading = null,
+    Object? status = null,
+    Object? user = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? nickname = freezed,
     Object? interestedTags = null,
     Object? selectedInterestedTags = null,
     Object? page = null,
+    Object? done = null,
   }) {
     return _then(_$_RegisterState(
-      loading: null == loading
-          ? _value.loading
-          : loading // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -165,6 +215,10 @@ class __$$_RegisterStateCopyWithImpl<$Res>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as RegisterPage,
+      done: null == done
+          ? _value.done
+          : done // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -173,20 +227,23 @@ class __$$_RegisterStateCopyWithImpl<$Res>
 
 class _$_RegisterState extends _RegisterState {
   _$_RegisterState(
-      {this.loading = false,
+      {required this.status,
+      this.user,
       this.email,
       this.password,
       this.nickname,
       final List<Tag> interestedTags = const [],
       final List<Tag> selectedInterestedTags = const [],
-      this.page = RegisterPage.email})
+      this.page = RegisterPage.email,
+      this.done = false})
       : _interestedTags = interestedTags,
         _selectedInterestedTags = selectedInterestedTags,
         super._();
 
   @override
-  @JsonKey()
-  final bool loading;
+  final Status status;
+  @override
+  final User? user;
   @override
   final String? email;
   @override
@@ -212,10 +269,13 @@ class _$_RegisterState extends _RegisterState {
   @override
   @JsonKey()
   final RegisterPage page;
+  @override
+  @JsonKey()
+  final bool done;
 
   @override
   String toString() {
-    return 'RegisterState(loading: $loading, email: $email, password: $password, nickname: $nickname, interestedTags: $interestedTags, selectedInterestedTags: $selectedInterestedTags, page: $page)';
+    return 'RegisterState(status: $status, user: $user, email: $email, password: $password, nickname: $nickname, interestedTags: $interestedTags, selectedInterestedTags: $selectedInterestedTags, page: $page, done: $done)';
   }
 
   @override
@@ -223,7 +283,8 @@ class _$_RegisterState extends _RegisterState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterState &&
-            (identical(other.loading, loading) || other.loading == loading) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
@@ -233,19 +294,22 @@ class _$_RegisterState extends _RegisterState {
                 .equals(other._interestedTags, _interestedTags) &&
             const DeepCollectionEquality().equals(
                 other._selectedInterestedTags, _selectedInterestedTags) &&
-            (identical(other.page, page) || other.page == page));
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.done, done) || other.done == done));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      loading,
+      status,
+      user,
       email,
       password,
       nickname,
       const DeepCollectionEquality().hash(_interestedTags),
       const DeepCollectionEquality().hash(_selectedInterestedTags),
-      page);
+      page,
+      done);
 
   @JsonKey(ignore: true)
   @override
@@ -256,17 +320,21 @@ class _$_RegisterState extends _RegisterState {
 
 abstract class _RegisterState extends RegisterState {
   factory _RegisterState(
-      {final bool loading,
+      {required final Status status,
+      final User? user,
       final String? email,
       final String? password,
       final String? nickname,
       final List<Tag> interestedTags,
       final List<Tag> selectedInterestedTags,
-      final RegisterPage page}) = _$_RegisterState;
+      final RegisterPage page,
+      final bool done}) = _$_RegisterState;
   _RegisterState._() : super._();
 
   @override
-  bool get loading;
+  Status get status;
+  @override
+  User? get user;
   @override
   String? get email;
   @override
@@ -279,6 +347,8 @@ abstract class _RegisterState extends RegisterState {
   List<Tag> get selectedInterestedTags;
   @override
   RegisterPage get page;
+  @override
+  bool get done;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterStateCopyWith<_$_RegisterState> get copyWith =>

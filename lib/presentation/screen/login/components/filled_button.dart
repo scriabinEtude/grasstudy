@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:grasstudy_client/data/common/status/status.dart';
 import 'package:grasstudy_client/presentation/color/light_color.dart';
 
 class LoginScreenFilledButton extends StatelessWidget {
   const LoginScreenFilledButton({
     super.key,
     this.enable = true,
-    this.loading = false,
+    this.status,
     required this.onPressed,
     required this.text,
   });
   final bool enable;
-  final bool loading;
+  final Status? status;
   final void Function() onPressed;
   final String text;
 
   @override
   Widget build(BuildContext context) {
+    bool loading = status != null && status is StatusLoading;
+
     return Opacity(
       opacity: enable ? 1 : 0.3,
       child: OutlinedButton(

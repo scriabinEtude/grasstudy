@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:grasstudy_client/data/common/status/status.dart';
 import 'package:grasstudy_client/data/model/tag.dart';
+import 'package:grasstudy_client/data/model/user.dart';
 import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -21,13 +23,15 @@ enum RegisterPage {
 class RegisterState with _$RegisterState {
   const RegisterState._();
   factory RegisterState({
-    @Default(false) bool loading,
+    required Status status,
+    User? user,
     String? email,
     String? password,
     String? nickname,
     @Default([]) List<Tag> interestedTags,
     @Default([]) List<Tag> selectedInterestedTags,
     @Default(RegisterPage.email) RegisterPage page,
+    @Default(false) bool done,
   }) = _RegisterState;
 
   bool get validation {

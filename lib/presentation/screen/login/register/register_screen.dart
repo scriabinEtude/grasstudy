@@ -8,6 +8,7 @@ import 'package:grasstudy_client/presentation/screen/login/register/email_verifi
 import 'package:grasstudy_client/presentation/screen/login/register/interest_tag_screen.dart';
 import 'package:grasstudy_client/bloc/register/register_event.dart';
 import 'package:grasstudy_client/presentation/screen/login/register/name_password_screen.dart';
+import 'package:grasstudy_client/presentation/screen/login/register/register_welcome_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -37,7 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             buildWhen: (previous, current) {
           return previous.validation != current.validation ||
               previous.page != current.page ||
-              previous.loading != current.loading;
+              previous.status != current.status;
         }, builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -48,7 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               },
               text: state.page.buttonText,
               enable: state.validation,
-              loading: state.loading,
+              status: state.status,
             ),
           );
         }),
@@ -71,7 +72,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 EmailScreen(),
                 const EmailVerificationScreen(),
                 NameAndPasswordScreen(),
-                InterestTagScreen(),
+                const InterestTagScreen(),
+                const RegisterWelcomeScreen(),
               ],
             ),
           ),

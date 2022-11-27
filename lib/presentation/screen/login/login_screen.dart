@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grasstudy_client/bloc/user/user_bloc.dart';
+import 'package:grasstudy_client/bloc/user/user_event.dart';
+import 'package:grasstudy_client/bloc/user/user_state.dart';
 import 'package:grasstudy_client/presentation/color/light_color.dart';
 import 'package:grasstudy_client/presentation/components/logo.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grasstudy_client/presentation/screen/home/home_screen.dart';
 import 'package:grasstudy_client/presentation/screen/login/components/app_form.dart';
 import 'package:grasstudy_client/presentation/screen/login/components/filled_button.dart';
 import 'package:grasstudy_client/presentation/screen/login/register/register_screen.dart';
@@ -15,9 +20,12 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  void onLogin() {
+  void onLogin(BuildContext context) {
     if (formKey.currentState?.validate() == true) {
-      // 로그인
+      BlocProvider.of<UserBloc>(context).add(UserEvent.login(
+        emailController.text,
+        passwordController.text,
+      ));
     }
   }
 
@@ -25,39 +33,50 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: Scaffold(
-        appBar: AppBar(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: SizedBox(
-          height: 100,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              children: [
-                LoginScreenFilledButton(
-                  onPressed: onLogin,
-                  text: '로그인',
+      child: BlocConsumer<UserBloc, UserState>(
+        listener: (context, state) {
+          if (state.user != null) {
+            context.goNamed(HomeScreen.routeName);
+          }
+        },
+        builder: (context, state) {
+          return Scaffold(
+            appBar: AppBar(),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: SizedBox(
+              height: 100,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
+                    LoginScreenFilledButton(
+                      onPressed: () => onLogin(context),
+                      text: '로그인',
+                      status: state.status,
+                    ),
+                    const _RegisterButton(),
+                  ],
                 ),
-                const _RegisterButton(),
-              ],
-            ),
-          ),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const Logo(),
-              AppForm(
-                formKey: formKey,
-                emailController: emailController,
-                passwordController: passwordController,
               ),
-              const SizedBox.shrink(),
-            ],
-          ),
-        ),
+            ),
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const Logo(),
+                  AppForm(
+                    formKey: formKey,
+                    emailController: emailController,
+                    passwordController: passwordController,
+                  ),
+                  const SizedBox.shrink(),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

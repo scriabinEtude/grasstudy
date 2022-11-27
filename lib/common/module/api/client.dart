@@ -6,9 +6,13 @@ abstract class Client {
     Map<String, dynamic>? queryParameters,
     required T Function(Map<String, dynamic> json) parser,
   });
-  Future<Result<T?>> post<T>({
+  Future<Result> post({
     required String url,
     Map<String, dynamic>? data,
-    T Function(Map<String, dynamic> json)? parser,
+  });
+  Future<Result<T>> postParser<T>({
+    required String url,
+    Map<String, dynamic>? data,
+    required T Function(Map<String, dynamic> json) parser,
   });
 }
