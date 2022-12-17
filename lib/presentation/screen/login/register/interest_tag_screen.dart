@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grasstudy_client/bloc/register/register_bloc.dart';
@@ -5,6 +6,10 @@ import 'package:grasstudy_client/bloc/register/register_event.dart';
 import 'package:grasstudy_client/bloc/register/register_state.dart';
 import 'package:grasstudy_client/data/model/tag.dart';
 import 'package:grasstudy_client/presentation/color/light_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:grasstudy_client/presentation/widget/autocomplete.dart';
+
+part './components/tag.dart';
 
 class InterestTagScreen extends StatelessWidget {
   const InterestTagScreen({super.key});
@@ -29,54 +34,19 @@ class InterestTagScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 15),
-          Wrap(
-              children: state.interestedTags
-                  .map((tag) => _Tag(
-                        selected: state.selectedInterestedTags.contains(tag),
-                        tag: tag,
-                      ))
-                  .toList()),
+          Wrap(children: [
+            ...state.interestedTags.map((tag) => _GeneratedTag(
+                  onSelect: () {
+                    BlocProvider.of<RegisterBloc>(context)
+                        .add(RegisterEvent.selectTag(tag));
+                  },
+                  selected: state.selectedInterestedTags.contains(tag),
+                  tag: tag,
+                )),
+            const _AddTag()
+          ]),
         ],
       );
     });
-  }
-}
-
-class _Tag extends StatelessWidget {
-  const _Tag({
-    Key? key,
-    required this.selected,
-    required this.tag,
-  }) : super(key: key);
-
-  final bool selected;
-  final Tag tag;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        BlocProvider.of<RegisterBloc>(context)
-            .add(RegisterEvent.selectTag(tag));
-      },
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(0, 10, 10, 0),
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: lightColorTheme.tertiaryColor,
-          ),
-          borderRadius: BorderRadius.circular(30),
-          color: selected ? lightColorTheme.tertiaryColor : Colors.white,
-        ),
-        child: Text(
-          tag.id,
-          style: TextStyle(
-            fontSize: 18,
-            color: selected ? Colors.white : Colors.black,
-          ),
-        ),
-      ),
-    );
   }
 }

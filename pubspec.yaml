@@ -46,6 +46,7 @@ dependencies:
   flutter_pretty_dio_logger: ^2.0.3
   equatable: ^2.0.5
   flutter_secure_storage: ^6.1.0
+  flutter_screenutil: ^5.6.0
 
 dev_dependencies:
   flutter_test:

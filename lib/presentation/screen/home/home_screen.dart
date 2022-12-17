@@ -36,10 +36,11 @@ class _GoUser extends StatelessWidget {
       onTap: () {
         context.goNamed(UserScreen.routeName);
       },
-      child: const Icon(
-        Icons.person,
-        color: Colors.black,
-        size: 30,
+      child: Row(
+        children: const [
+          Icon(Icons.person),
+          SizedBox(width: 20),
+        ],
       ),
     );
   }
