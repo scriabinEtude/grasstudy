@@ -19,5 +19,5 @@ Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'email': instance.email,
       'nickname': instance.nickname,
       'password': instance.password,
-      'interestTags': instance.interestTags,
+      'interestTags': instance.interestTags?.map((e) => e.toJson()).toList(),
     };

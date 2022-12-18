@@ -12,4 +12,5 @@ class RegisterEvent with _$RegisterEvent {
   const factory RegisterEvent.setNickname(String nickname) =
       RegisterEventSetNickname;
   const factory RegisterEvent.selectTag(Tag tag) = RegisterEventTagSelect;
+  const factory RegisterEvent.addTag(Tag tag) = RegisterEventTagAdd;
 }

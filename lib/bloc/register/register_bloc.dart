@@ -20,6 +20,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<RegisterEventSetPassword>(_setPassword);
     on<RegisterEventSetNickname>(_setNickname);
     on<RegisterEventTagSelect>(_tagSelect);
+    on<RegisterEventTagAdd>(_tagAdd);
   }
 
   final UserRepository _userRepository;
@@ -130,5 +131,18 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
         event.tag,
       ]));
     }
+  }
+
+  _tagAdd(RegisterEventTagAdd event, Emitter emit) {
+    emit(state.copyWith(
+      interestedTags: [
+        ...state.interestedTags,
+        event.tag,
+      ],
+      selectedInterestedTags: [
+        ...state.selectedInterestedTags,
+        event.tag,
+      ],
+    ));
   }
 }

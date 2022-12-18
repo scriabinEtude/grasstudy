@@ -10,7 +10,7 @@ class TagRepositoryTest extends TagRepository {
 
   @override
   Future<Result<List<Tag>>> getTagsForRegist() {
-    return Future.value(Result<List<Tag>>.success(const [
+    return Future.value(Result<List<Tag>>.success([
       Tag(id: "태그1"),
       Tag(id: "태 그2"),
       Tag(id: "태그 3"),

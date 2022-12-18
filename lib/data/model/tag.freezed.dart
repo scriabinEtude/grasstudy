@@ -90,7 +90,7 @@ class __$$_TagCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$_Tag>
 /// @nodoc
 @JsonSerializable()
 class _$_Tag extends _Tag {
-  const _$_Tag({required this.id}) : super._();
+  _$_Tag({required this.id}) : super._();
 
   factory _$_Tag.fromJson(Map<String, dynamic> json) => _$$_TagFromJson(json);
 
@@ -112,8 +112,8 @@ class _$_Tag extends _Tag {
 }
 
 abstract class _Tag extends Tag {
-  const factory _Tag({required final String id}) = _$_Tag;
-  const _Tag._() : super._();
+  factory _Tag({required final String id}) = _$_Tag;
+  _Tag._() : super._();
 
   factory _Tag.fromJson(Map<String, dynamic> json) = _$_Tag.fromJson;
 
