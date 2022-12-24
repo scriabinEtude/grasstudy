@@ -21,6 +21,7 @@ mixin _$UserEvent {
     required TResult Function(String email, String password) login,
     required TResult Function(User user) setUser,
     required TResult Function() logout,
+    required TResult Function() autoLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$UserEvent {
     TResult? Function(String email, String password)? login,
     TResult? Function(User user)? setUser,
     TResult? Function()? logout,
+    TResult? Function()? autoLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$UserEvent {
     TResult Function(String email, String password)? login,
     TResult Function(User user)? setUser,
     TResult Function()? logout,
+    TResult Function()? autoLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$UserEvent {
     required TResult Function(UserEventLogin value) login,
     required TResult Function(UserEventSetUser value) setUser,
     required TResult Function(UserEventLogout value) logout,
+    required TResult Function(UserEventAutoLogin value) autoLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$UserEvent {
     TResult? Function(UserEventLogin value)? login,
     TResult? Function(UserEventSetUser value)? setUser,
     TResult? Function(UserEventLogout value)? logout,
+    TResult? Function(UserEventAutoLogin value)? autoLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$UserEvent {
     TResult Function(UserEventLogin value)? login,
     TResult Function(UserEventSetUser value)? setUser,
     TResult Function(UserEventLogout value)? logout,
+    TResult Function(UserEventAutoLogin value)? autoLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +161,7 @@ class _$UserEventLogin implements UserEventLogin {
     required TResult Function(String email, String password) login,
     required TResult Function(User user) setUser,
     required TResult Function() logout,
+    required TResult Function() autoLogin,
   }) {
     return login(email, password);
   }
@@ -165,6 +172,7 @@ class _$UserEventLogin implements UserEventLogin {
     TResult? Function(String email, String password)? login,
     TResult? Function(User user)? setUser,
     TResult? Function()? logout,
+    TResult? Function()? autoLogin,
   }) {
     return login?.call(email, password);
   }
@@ -175,6 +183,7 @@ class _$UserEventLogin implements UserEventLogin {
     TResult Function(String email, String password)? login,
     TResult Function(User user)? setUser,
     TResult Function()? logout,
+    TResult Function()? autoLogin,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -189,6 +198,7 @@ class _$UserEventLogin implements UserEventLogin {
     required TResult Function(UserEventLogin value) login,
     required TResult Function(UserEventSetUser value) setUser,
     required TResult Function(UserEventLogout value) logout,
+    required TResult Function(UserEventAutoLogin value) autoLogin,
   }) {
     return login(this);
   }
@@ -199,6 +209,7 @@ class _$UserEventLogin implements UserEventLogin {
     TResult? Function(UserEventLogin value)? login,
     TResult? Function(UserEventSetUser value)? setUser,
     TResult? Function(UserEventLogout value)? logout,
+    TResult? Function(UserEventAutoLogin value)? autoLogin,
   }) {
     return login?.call(this);
   }
@@ -209,6 +220,7 @@ class _$UserEventLogin implements UserEventLogin {
     TResult Function(UserEventLogin value)? login,
     TResult Function(UserEventSetUser value)? setUser,
     TResult Function(UserEventLogout value)? logout,
+    TResult Function(UserEventAutoLogin value)? autoLogin,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -306,6 +318,7 @@ class _$UserEventSetUser implements UserEventSetUser {
     required TResult Function(String email, String password) login,
     required TResult Function(User user) setUser,
     required TResult Function() logout,
+    required TResult Function() autoLogin,
   }) {
     return setUser(user);
   }
@@ -316,6 +329,7 @@ class _$UserEventSetUser implements UserEventSetUser {
     TResult? Function(String email, String password)? login,
     TResult? Function(User user)? setUser,
     TResult? Function()? logout,
+    TResult? Function()? autoLogin,
   }) {
     return setUser?.call(user);
   }
@@ -326,6 +340,7 @@ class _$UserEventSetUser implements UserEventSetUser {
     TResult Function(String email, String password)? login,
     TResult Function(User user)? setUser,
     TResult Function()? logout,
+    TResult Function()? autoLogin,
     required TResult orElse(),
   }) {
     if (setUser != null) {
@@ -340,6 +355,7 @@ class _$UserEventSetUser implements UserEventSetUser {
     required TResult Function(UserEventLogin value) login,
     required TResult Function(UserEventSetUser value) setUser,
     required TResult Function(UserEventLogout value) logout,
+    required TResult Function(UserEventAutoLogin value) autoLogin,
   }) {
     return setUser(this);
   }
@@ -350,6 +366,7 @@ class _$UserEventSetUser implements UserEventSetUser {
     TResult? Function(UserEventLogin value)? login,
     TResult? Function(UserEventSetUser value)? setUser,
     TResult? Function(UserEventLogout value)? logout,
+    TResult? Function(UserEventAutoLogin value)? autoLogin,
   }) {
     return setUser?.call(this);
   }
@@ -360,6 +377,7 @@ class _$UserEventSetUser implements UserEventSetUser {
     TResult Function(UserEventLogin value)? login,
     TResult Function(UserEventSetUser value)? setUser,
     TResult Function(UserEventLogout value)? logout,
+    TResult Function(UserEventAutoLogin value)? autoLogin,
     required TResult orElse(),
   }) {
     if (setUser != null) {
@@ -419,6 +437,7 @@ class _$UserEventLogout implements UserEventLogout {
     required TResult Function(String email, String password) login,
     required TResult Function(User user) setUser,
     required TResult Function() logout,
+    required TResult Function() autoLogin,
   }) {
     return logout();
   }
@@ -429,6 +448,7 @@ class _$UserEventLogout implements UserEventLogout {
     TResult? Function(String email, String password)? login,
     TResult? Function(User user)? setUser,
     TResult? Function()? logout,
+    TResult? Function()? autoLogin,
   }) {
     return logout?.call();
   }
@@ -439,6 +459,7 @@ class _$UserEventLogout implements UserEventLogout {
     TResult Function(String email, String password)? login,
     TResult Function(User user)? setUser,
     TResult Function()? logout,
+    TResult Function()? autoLogin,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -453,6 +474,7 @@ class _$UserEventLogout implements UserEventLogout {
     required TResult Function(UserEventLogin value) login,
     required TResult Function(UserEventSetUser value) setUser,
     required TResult Function(UserEventLogout value) logout,
+    required TResult Function(UserEventAutoLogin value) autoLogin,
   }) {
     return logout(this);
   }
@@ -463,6 +485,7 @@ class _$UserEventLogout implements UserEventLogout {
     TResult? Function(UserEventLogin value)? login,
     TResult? Function(UserEventSetUser value)? setUser,
     TResult? Function(UserEventLogout value)? logout,
+    TResult? Function(UserEventAutoLogin value)? autoLogin,
   }) {
     return logout?.call(this);
   }
@@ -473,6 +496,7 @@ class _$UserEventLogout implements UserEventLogout {
     TResult Function(UserEventLogin value)? login,
     TResult Function(UserEventSetUser value)? setUser,
     TResult Function(UserEventLogout value)? logout,
+    TResult Function(UserEventAutoLogin value)? autoLogin,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -484,4 +508,118 @@ class _$UserEventLogout implements UserEventLogout {
 
 abstract class UserEventLogout implements UserEvent {
   const factory UserEventLogout() = _$UserEventLogout;
+}
+
+/// @nodoc
+abstract class _$$UserEventAutoLoginCopyWith<$Res> {
+  factory _$$UserEventAutoLoginCopyWith(_$UserEventAutoLogin value,
+          $Res Function(_$UserEventAutoLogin) then) =
+      __$$UserEventAutoLoginCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserEventAutoLoginCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$UserEventAutoLogin>
+    implements _$$UserEventAutoLoginCopyWith<$Res> {
+  __$$UserEventAutoLoginCopyWithImpl(
+      _$UserEventAutoLogin _value, $Res Function(_$UserEventAutoLogin) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserEventAutoLogin implements UserEventAutoLogin {
+  const _$UserEventAutoLogin();
+
+  @override
+  String toString() {
+    return 'UserEvent.autoLogin()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserEventAutoLogin);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) login,
+    required TResult Function(User user) setUser,
+    required TResult Function() logout,
+    required TResult Function() autoLogin,
+  }) {
+    return autoLogin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? login,
+    TResult? Function(User user)? setUser,
+    TResult? Function()? logout,
+    TResult? Function()? autoLogin,
+  }) {
+    return autoLogin?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? login,
+    TResult Function(User user)? setUser,
+    TResult Function()? logout,
+    TResult Function()? autoLogin,
+    required TResult orElse(),
+  }) {
+    if (autoLogin != null) {
+      return autoLogin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserEventLogin value) login,
+    required TResult Function(UserEventSetUser value) setUser,
+    required TResult Function(UserEventLogout value) logout,
+    required TResult Function(UserEventAutoLogin value) autoLogin,
+  }) {
+    return autoLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UserEventLogin value)? login,
+    TResult? Function(UserEventSetUser value)? setUser,
+    TResult? Function(UserEventLogout value)? logout,
+    TResult? Function(UserEventAutoLogin value)? autoLogin,
+  }) {
+    return autoLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserEventLogin value)? login,
+    TResult Function(UserEventSetUser value)? setUser,
+    TResult Function(UserEventLogout value)? logout,
+    TResult Function(UserEventAutoLogin value)? autoLogin,
+    required TResult orElse(),
+  }) {
+    if (autoLogin != null) {
+      return autoLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserEventAutoLogin implements UserEvent {
+  const factory UserEventAutoLogin() = _$UserEventAutoLogin;
 }

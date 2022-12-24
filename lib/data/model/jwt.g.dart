@@ -7,9 +7,11 @@ part of 'jwt.dart';
 // **************************************************************************
 
 _$_JWT _$$_JWTFromJson(Map<String, dynamic> json) => _$_JWT(
-      accessToken: json['access_token'] as String,
+      accessToken: json['accessToken'] as String,
+      refreshToken: json['refreshToken'] as String,
     );
 
 Map<String, dynamic> _$$_JWTToJson(_$_JWT instance) => <String, dynamic>{
-      'access_token': instance.accessToken,
+      'accessToken': instance.accessToken,
+      'refreshToken': instance.refreshToken,
     };

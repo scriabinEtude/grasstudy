@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_event.dart';
 import 'package:grasstudy_client/bloc/user/user_state.dart';
@@ -18,6 +16,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<UserEventSetUser>(_setUser);
     on<UserEventLogin>(_login);
     on<UserEventLogout>(_logout);
+    on<UserEventAutoLogin>(_autoLogin);
   }
 
   final UserRepository _userRepository;
@@ -58,6 +57,15 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   _setUser(UserEventSetUser event, Emitter emit) {
     emit(state.copyWith(user: event.user));
+  }
+
+  _autoLogin(UserEventAutoLogin event, Emitter emit) async {
+    try {
+      JWT jwt = await SecureStorage().jwtGet();
+      if (!jwt.isExist) return;
+
+      // _userRepository. //TODO(autoLogin)
+    } catch (e) {}
   }
 
   User? get user => state.user;

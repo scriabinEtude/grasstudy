@@ -11,7 +11,7 @@ class ClientDio implements Client {
           BaseOptions(
             baseUrl: baseUrl,
           ),
-        )..interceptors.addAll(dio_interceptors);
+        )..interceptors.addAll(dioInterceptors);
 
   @override
   Future<Result<T>> get<T>({
@@ -53,8 +53,11 @@ class ClientDio implements Client {
             response.statusCode ?? 500, response.statusMessage);
       }
     } catch (e) {
-      print(e);
       return Result.failure(500, e.toString());
     }
+  }
+
+  void addInterceptor(Interceptor interceptor) {
+    dio.interceptors.add(interceptor);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grasstudy_client/bloc/home/home_bloc.dart';
 import 'package:grasstudy_client/bloc/register/register_bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_bloc.dart';
 import 'package:grasstudy_client/presentation/screen/home/home_screen.dart';
@@ -43,7 +44,10 @@ class GrassRouter {
         GoRoute(
             path: '/',
             name: HomeScreen.routeName,
-            builder: ((context, state) => const HomeScreen()),
+            builder: ((context, state) => BlocProvider(
+                  create: (context) => HomeBloc(),
+                  child: const HomeScreen(),
+                )),
             routes: [
               GoRoute(
                 path: 'splash',

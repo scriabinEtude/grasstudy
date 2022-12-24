@@ -7,4 +7,5 @@ class UserEvent with _$UserEvent {
   const factory UserEvent.login(String email, String password) = UserEventLogin;
   const factory UserEvent.setUser(User user) = UserEventSetUser;
   const factory UserEvent.logout() = UserEventLogout;
+  const factory UserEvent.autoLogin() = UserEventAutoLogin;
 }

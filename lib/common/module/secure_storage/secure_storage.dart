@@ -6,7 +6,8 @@ import 'package:grasstudy_client/data/model/jwt.dart';
 class SecureStorage {
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
 
-  static const String KEY_ACCESS_TOKEN = 'access_token';
+  static const String KEY_ACCESS_TOKEN = 'accessToken';
+  static const String REFRESH_ACCESS_TOKEN = 'refreshToken';
 
   Future<void> jwtSet(JWT jwt) async {
     return await _secureStorage.write(
@@ -22,6 +23,7 @@ class SecureStorage {
   Future<JWT> jwtGet() async {
     return JWT(
       accessToken: await _secureStorage.read(key: KEY_ACCESS_TOKEN) ?? "",
+      refreshToken: await _secureStorage.read(key: REFRESH_ACCESS_TOKEN) ?? "",
     );
   }
 
