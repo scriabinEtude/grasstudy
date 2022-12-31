@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:grasstudy_client/bloc/group/bloc/group_register_bloc.dart';
+import 'package:grasstudy_client/bloc/group/bloc/group_register_event.dart';
 import 'package:grasstudy_client/presentation/color/light_color.dart';
 import 'package:grasstudy_client/presentation/screen/group/register/components/group_register_title.dart';
 import 'package:go_router/go_router.dart';
@@ -40,6 +43,8 @@ class _GroupRegister01NameScreenState extends State<GroupRegister01NameScreen> {
         child: InkWell(
           onTap: validation
               ? () {
+                  BlocProvider.of<GroupRegisterBloc>(context)
+                      .add(GroupRegisterEvent.setName(controller.text));
                   context.goNamed(GroupRegister02IntroduceScreen.routeName);
                 }
               : null,

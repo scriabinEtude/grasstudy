@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grasstudy_client/bloc/group/bloc/group_register_bloc.dart';
 import 'package:grasstudy_client/bloc/route/route_bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_bloc.dart';
 import 'package:grasstudy_client/common/config/di.dart';
@@ -21,6 +22,7 @@ void mainCommon(AppConfig appConfig) {
                   grassRouter: grassRouter,
                   userBloc: userBloc,
                 )),
+        BlocProvider(create: (context) => GroupRegisterBloc()),
       ],
       child: const Grasstudy(),
     ),

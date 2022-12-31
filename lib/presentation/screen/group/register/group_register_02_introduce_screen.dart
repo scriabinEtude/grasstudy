@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:grasstudy_client/bloc/group/bloc/group_register_bloc.dart';
+import 'package:grasstudy_client/bloc/group/bloc/group_register_event.dart';
 import 'package:grasstudy_client/presentation/color/light_color.dart';
 import 'package:grasstudy_client/presentation/screen/group/register/components/group_register_title.dart';
-import 'package:go_router/go_router.dart';
 
 class GroupRegister02IntroduceScreen extends StatefulWidget {
   const GroupRegister02IntroduceScreen({super.key});
@@ -38,6 +40,12 @@ class _GroupRegister02IntroduceScreenState
       bottomSheet: Opacity(
         opacity: validation ? 1 : 0.3,
         child: InkWell(
+          onTap: validation
+              ? () {
+                  BlocProvider.of<GroupRegisterBloc>(context)
+                      .add(GroupRegisterEvent.setIntroduce(controller.text));
+                }
+              : null,
           child: Container(
             height: 60.h,
             decoration: BoxDecoration(

@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grasstudy_client/bloc/group/bloc/group_register_bloc.dart';
+import 'package:grasstudy_client/bloc/group/bloc/group_register_event.dart';
 import 'package:grasstudy_client/bloc/home/home_bloc.dart';
 import 'package:grasstudy_client/bloc/register/register_bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_bloc.dart';
@@ -80,11 +82,14 @@ class GrassRouter {
               GoRoute(
                   path: 'group/register',
                   name: GroupRegister01NameScreen.routeName,
-                  builder: (context, state) =>
-                      const GroupRegister01NameScreen(),
+                  builder: (context, state) {
+                    BlocProvider.of<GroupRegisterBloc>(context)
+                        .add(GroupRegisterEvent.init());
+                    return const GroupRegister01NameScreen();
+                  },
                   routes: [
                     GoRoute(
-                      path: 'group/register/introduce',
+                      path: 'introduce',
                       name: GroupRegister02IntroduceScreen.routeName,
                       builder: (context, state) =>
                           const GroupRegister02IntroduceScreen(),
