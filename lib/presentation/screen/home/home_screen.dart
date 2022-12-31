@@ -7,7 +7,9 @@ import 'package:grasstudy_client/bloc/home/home_event.dart';
 import 'package:grasstudy_client/bloc/user/user_bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_state.dart';
 import 'package:grasstudy_client/data/enum/home_index.dart';
+import 'package:grasstudy_client/presentation/screen/group/register/group_register_01_name_screen.dart';
 import 'package:grasstudy_client/presentation/screen/login/login_screen.dart';
+import 'package:grasstudy_client/presentation/screen/my/my_group_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,32 +33,68 @@ class HomeScreen extends StatelessWidget {
                 _GoUser(),
               ],
             ),
-            floatingActionButton: state.tabIndex == HomeIndex.my
-                ? FloatingActionButton(
-                    mini: true,
-                    onPressed: () {},
-                    child: const Icon(Icons.add),
-                  )
-                : null,
-            bottomNavigationBar: BottomNavigationBar(
-              currentIndex: state.tabIndex.index,
-              items: [
-                BottomNavigationBarItem(
-                    icon: HomeIndex.my.icon, label: HomeIndex.my.label),
-                BottomNavigationBarItem(
-                    icon: HomeIndex.search.icon, label: HomeIndex.search.label),
-                BottomNavigationBarItem(
-                    icon: HomeIndex.notImpl.icon,
-                    label: HomeIndex.notImpl.label)
-              ],
-              onTap: (value) {
-                BlocProvider.of<HomeBloc>(context)
-                    .add(HomeEvent.setTabIndex(HomeIndex.values[value]));
-              },
-            ),
+            floatingActionButton: _FAB(state),
+            bottomNavigationBar: _Navigator(state),
+            body: _Body(state),
           );
         },
       ),
+    );
+  }
+}
+
+class _Body extends StatelessWidget {
+  const _Body(this.state);
+  final HomeState state;
+
+  @override
+  Widget build(BuildContext context) {
+    switch (state.tabIndex) {
+      case HomeIndex.my:
+        return const MyGroupScreen();
+      default:
+        return const SizedBox.shrink();
+    }
+  }
+}
+
+class _FAB extends StatelessWidget {
+  const _FAB(this.state);
+  final HomeState state;
+
+  @override
+  Widget build(BuildContext context) {
+    switch (state.tabIndex) {
+      case HomeIndex.my:
+        return FloatingActionButton(
+          mini: true,
+          onPressed: () => context.goNamed(GroupRegister01NameScreen.routeName),
+          child: const Icon(Icons.add),
+        );
+      default:
+        return const SizedBox.shrink();
+    }
+  }
+}
+
+class _Navigator extends StatelessWidget {
+  const _Navigator(this.state);
+  final HomeState state;
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      currentIndex: state.tabIndex.index,
+      items: [
+        BottomNavigationBarItem(
+            icon: HomeIndex.my.icon, label: HomeIndex.my.label),
+        BottomNavigationBarItem(
+            icon: HomeIndex.search.icon, label: HomeIndex.search.label),
+      ],
+      onTap: (value) {
+        BlocProvider.of<HomeBloc>(context)
+            .add(HomeEvent.setTabIndex(HomeIndex.values[value]));
+      },
     );
   }
 }

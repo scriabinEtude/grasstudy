@@ -28,21 +28,29 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       Result<JWT> result =
           await _userRepository.login(event.email, event.password);
 
-      result.map(
-        success: (success) {
-          SecureStorage().jwtSet(success.data);
-          emit(
-            state.copyWith(
-              user: User(
-                email: event.email,
-                nickname: 'tester',
-              ),
-              status: Status.success(),
-            ),
+      await result.map(
+        success: (success) async {
+          await SecureStorage().jwtSet(success.data);
+          final userResult = await _userRepository.getUserByToken();
+          userResult.when(
+            success: (user) {
+              emit(
+                state.copyWith(
+                  user: user,
+                  status: Status.success(),
+                ),
+              );
+            },
+            failure: (status, message) {
+              emit(state.copyWith(
+                  status: Status.fail(message: "로그인에 실패하였습니다.")));
+            },
           );
         },
         failure: (failure) {
-          emit(state.copyWith(status: Status.fail(message: "로그인에 실패하였습니다.")));
+          emit(state.copyWith(
+              status: Status.fail(
+                  message: "아이디 또는 비밀번호가 다릅니다.\n계정을 다시 한 번 확인해 주시기 바랍니다.")));
         },
       );
     } catch (e) {
@@ -64,8 +72,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       JWT jwt = await SecureStorage().jwtGet();
       if (!jwt.isExist) return;
 
-      // _userRepository. //TODO(autoLogin)
-    } catch (e) {}
+      final result = await _userRepository.getUserByToken();
+      result.whenOrNull(
+        success: (user) => emit(state.copyWith(user: user)),
+      );
+    } catch (e) {
+      return;
+    }
   }
 
   User? get user => state.user;

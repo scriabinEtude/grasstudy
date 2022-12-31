@@ -9,4 +9,5 @@ abstract class UserRepository {
   Future<Result> isDuplicatedEmail(String email);
   Future<Result> isDuplicatedNickname(String nickname);
   Future<Result> updateUserInterestTag(List<Tag> tags);
+  Future<Result<User>> getUserByToken();
 }

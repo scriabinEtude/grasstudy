@@ -44,4 +44,16 @@ class UserRepositoryImpl extends UserRepository {
       return Result.failure(500, e.toString());
     }
   }
+
+  @override
+  Future<Result<User>> getUserByToken() async {
+    try {
+      return await client.get<User>(
+        url: '/user',
+        parser: User.fromJson,
+      );
+    } catch (e) {
+      return Result.failure(500, e.toString());
+    }
+  }
 }

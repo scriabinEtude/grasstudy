@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_event.dart';
 import 'package:grasstudy_client/bloc/user/user_state.dart';
+import 'package:grasstudy_client/data/common/status/status.dart';
 import 'package:grasstudy_client/presentation/color/light_color.dart';
 import 'package:grasstudy_client/presentation/components/logo.dart';
 import 'package:go_router/go_router.dart';
@@ -65,7 +66,13 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Logo(),
+                  Column(
+                    children: [
+                      const Logo(),
+                      if (state.status is StatusFail)
+                        FailText((state.status as StatusFail).message),
+                    ],
+                  ),
                   AppForm(
                     formKey: formKey,
                     emailController: emailController,
@@ -97,6 +104,25 @@ class _RegisterButton extends StatelessWidget {
             color: lightColorTheme.tertiaryColor,
             fontWeight: FontWeight.w600,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class FailText extends StatelessWidget {
+  const FailText(this.message, {super.key});
+  final String? message;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      child: Text(
+        message ?? "",
+        style: const TextStyle(
+          fontSize: 16,
+          color: Colors.red,
         ),
       ),
     );
