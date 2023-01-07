@@ -9,5 +9,6 @@ class GroupRegisterState with _$GroupRegisterState {
     required Status status,
     String? name,
     String? introduce,
+    List<String>? tags,
   }) = _GroupRegisterState;
 }

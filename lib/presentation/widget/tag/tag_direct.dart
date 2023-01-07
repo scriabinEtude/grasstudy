@@ -1,9 +1,36 @@
-part of '../interest_tag_screen.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grasstudy_client/data/model/tag.dart';
+import 'package:grasstudy_client/presentation/color/light_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class _DirectlyAddTag extends StatelessWidget {
-  const _DirectlyAddTag({required this.onDirectlyAdd});
+class DirectlyAddTag extends StatelessWidget {
+  const DirectlyAddTag({
+    super.key,
+    required this.onDirectlyAdd,
+  });
 
   final void Function() onDirectlyAdd;
+
+  static Future<String?>
+      showDirectlyAddDialog<T extends StateStreamableSource<Object?>, String>(
+    BuildContext superContext,
+    void Function(BuildContext, Tag) onTagAddSubmit,
+  ) async {
+    Navigator.pop(superContext);
+    return await showCupertinoDialog<String>(
+        context: superContext,
+        barrierDismissible: true,
+        builder: (_) {
+          return BlocProvider<T>.value(
+            value: superContext.read<T>(),
+            child: DirectlyAddTagDialog(
+              onSubmit: (tag) => onTagAddSubmit(superContext, tag),
+            ),
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +59,19 @@ class _DirectlyAddTag extends StatelessWidget {
   }
 }
 
-class _DirectlyAddTagDialog extends StatefulWidget {
-  const _DirectlyAddTagDialog();
+class DirectlyAddTagDialog extends StatefulWidget {
+  const DirectlyAddTagDialog({
+    super.key,
+    required this.onSubmit,
+  });
+
+  final void Function(Tag) onSubmit;
 
   @override
-  State<_DirectlyAddTagDialog> createState() => __DirectlyAddTagDialogState();
+  State<DirectlyAddTagDialog> createState() => DirectlyAddTagDialogState();
 }
 
-class __DirectlyAddTagDialogState extends State<_DirectlyAddTagDialog> {
+class DirectlyAddTagDialogState extends State<DirectlyAddTagDialog> {
   final TextEditingController controller = TextEditingController();
 
   @override
@@ -50,9 +82,8 @@ class __DirectlyAddTagDialogState extends State<_DirectlyAddTagDialog> {
 
   onSubmit() {
     if (controller.text.isEmpty) return;
+    widget.onSubmit(Tag(id: controller.text));
 
-    BlocProvider.of<RegisterBloc>(context)
-        .add(RegisterEvent.addTag(Tag(id: controller.text)));
     Navigator.pop(context, true);
   }
 

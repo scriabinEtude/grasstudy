@@ -1,15 +1,49 @@
-part of '../interest_tag_screen.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grasstudy_client/data/model/tag.dart';
+import 'package:grasstudy_client/presentation/color/light_color.dart';
+import 'package:grasstudy_client/presentation/widget/autocomplete/autocomplete.dart';
+import 'package:grasstudy_client/presentation/widget/tag/tag_direct.dart';
+import 'package:grasstudy_client/presentation/widget/tag/tag_generated.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class _AddTag extends StatelessWidget {
-  const _AddTag({
+class AddTag extends StatelessWidget {
+  const AddTag({
+    super.key,
     required this.onAdd,
+    required this.onTagAddSubmit,
   });
 
   final Future<String?> Function(BuildContext) onAdd;
+  final void Function(BuildContext, Tag) onTagAddSubmit;
+
+  static Future<String?>
+      showAddTagDialog<T extends StateStreamableSource<Object?>, String>(
+    BuildContext superContext,
+    void Function(BuildContext, Tag) onTagAddSubmit,
+  ) async {
+    String? tag = await showCupertinoDialog(
+        context: superContext,
+        barrierDismissible: true,
+        builder: ((context) {
+          return BlocProvider<T>.value(
+            value: superContext.read<T>(),
+            child: AddTagDialog(
+              onDirectlyAdd: () =>
+                  DirectlyAddTag.showDirectlyAddDialog<T, String?>(
+                      superContext, onTagAddSubmit),
+              onSubmit: (tag) => onTagAddSubmit(superContext, tag),
+            ),
+          );
+        }));
+
+    return tag;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return _Tag(
+    return TagWidget(
       onSelect: () => onAdd(context),
       selected: true,
       tag: Tag(id: ''),
@@ -33,23 +67,26 @@ class _AddTag extends StatelessWidget {
   }
 }
 
-class _AddTagDialog extends StatefulWidget {
-  const _AddTagDialog({required this.onDirectlyAdd});
+class AddTagDialog extends StatefulWidget {
+  const AddTagDialog({
+    super.key,
+    required this.onDirectlyAdd,
+    required this.onSubmit,
+  });
 
   final void Function() onDirectlyAdd;
+  final void Function(Tag) onSubmit;
 
   @override
-  State<_AddTagDialog> createState() => _AddTagDialogState();
+  State<AddTagDialog> createState() => AddTagDialogState();
 }
 
-class _AddTagDialogState extends State<_AddTagDialog> {
+class AddTagDialogState extends State<AddTagDialog> {
   Tag? selectedTag;
 
   onSubmit() {
     if (selectedTag == null) return;
-
-    BlocProvider.of<RegisterBloc>(context)
-        .add(RegisterEvent.addTag(selectedTag!));
+    widget.onSubmit(selectedTag!);
     Navigator.pop(context);
   }
 
@@ -79,7 +116,7 @@ class _AddTagDialogState extends State<_AddTagDialog> {
                   Tag(id: 'tag5'),
                 ],
                 customOptions: [
-                  _DirectlyAddTag(
+                  DirectlyAddTag(
                     onDirectlyAdd: widget.onDirectlyAdd,
                   ),
                 ],

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:grasstudy_client/bloc/group/bloc/group_register_bloc.dart';
 import 'package:grasstudy_client/bloc/group/bloc/group_register_event.dart';
-import 'package:grasstudy_client/presentation/color/light_color.dart';
+import 'package:grasstudy_client/presentation/screen/group/register/components/group_register_next_button.dart';
 import 'package:grasstudy_client/presentation/screen/group/register/components/group_register_title.dart';
 import 'package:go_router/go_router.dart';
 import 'package:grasstudy_client/presentation/screen/group/register/group_register_02_introduce_screen.dart';
@@ -34,37 +34,19 @@ class _GroupRegister01NameScreenState extends State<GroupRegister01NameScreen> {
     });
   }
 
+  onNext() {
+    BlocProvider.of<GroupRegisterBloc>(context)
+        .add(GroupRegisterEvent.setName(controller.text));
+    context.goNamed(GroupRegister02IntroduceScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      floatingActionButton: Opacity(
-        opacity: validation ? 1 : 0.3,
-        child: InkWell(
-          onTap: validation
-              ? () {
-                  BlocProvider.of<GroupRegisterBloc>(context)
-                      .add(GroupRegisterEvent.setName(controller.text));
-                  context.goNamed(GroupRegister02IntroduceScreen.routeName);
-                }
-              : null,
-          child: Container(
-            width: 80.w,
-            height: 35.h,
-            decoration: BoxDecoration(
-              color: lightColorTheme.tertiaryColor,
-              borderRadius: BorderRadius.circular(20.sp),
-            ),
-            child: Center(
-                child: Text(
-              '다음',
-              style: TextStyle(
-                fontSize: 18.sp,
-                color: Colors.white,
-              ),
-            )),
-          ),
-        ),
+      floatingActionButton: GroupRegisterNextButton(
+        validation: validation,
+        onTap: onNext,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),

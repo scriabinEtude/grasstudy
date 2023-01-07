@@ -1,7 +1,10 @@
-part of '../interest_tag_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:grasstudy_client/data/model/tag.dart';
+import 'package:grasstudy_client/presentation/color/light_color.dart';
 
-class _GeneratedTag extends StatelessWidget {
-  const _GeneratedTag({
+class GeneratedTag extends StatelessWidget {
+  const GeneratedTag({
+    super.key,
     required this.onSelect,
     required this.selected,
     required this.tag,
@@ -13,7 +16,7 @@ class _GeneratedTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _Tag(
+    return TagWidget(
       onSelect: onSelect,
       selected: selected,
       tag: tag,
@@ -28,8 +31,8 @@ class _GeneratedTag extends StatelessWidget {
   }
 }
 
-class _Tag extends StatelessWidget {
-  const _Tag({
+class TagWidget extends StatelessWidget {
+  const TagWidget({
     Key? key,
     required this.onSelect,
     required this.selected,

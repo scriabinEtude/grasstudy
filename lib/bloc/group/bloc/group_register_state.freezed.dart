@@ -19,6 +19,7 @@ mixin _$GroupRegisterState {
   Status get status => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get introduce => throw _privateConstructorUsedError;
+  List<String>? get tags => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GroupRegisterStateCopyWith<GroupRegisterState> get copyWith =>
@@ -31,7 +32,8 @@ abstract class $GroupRegisterStateCopyWith<$Res> {
           GroupRegisterState value, $Res Function(GroupRegisterState) then) =
       _$GroupRegisterStateCopyWithImpl<$Res, GroupRegisterState>;
   @useResult
-  $Res call({Status status, String? name, String? introduce});
+  $Res call(
+      {Status status, String? name, String? introduce, List<String>? tags});
 
   $StatusCopyWith<$Res> get status;
 }
@@ -52,6 +54,7 @@ class _$GroupRegisterStateCopyWithImpl<$Res, $Val extends GroupRegisterState>
     Object? status = null,
     Object? name = freezed,
     Object? introduce = freezed,
+    Object? tags = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -66,6 +69,10 @@ class _$GroupRegisterStateCopyWithImpl<$Res, $Val extends GroupRegisterState>
           ? _value.introduce
           : introduce // ignore: cast_nullable_to_non_nullable
               as String?,
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 
@@ -86,7 +93,8 @@ abstract class _$$_GroupRegisterStateCopyWith<$Res>
       __$$_GroupRegisterStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, String? name, String? introduce});
+  $Res call(
+      {Status status, String? name, String? introduce, List<String>? tags});
 
   @override
   $StatusCopyWith<$Res> get status;
@@ -106,6 +114,7 @@ class __$$_GroupRegisterStateCopyWithImpl<$Res>
     Object? status = null,
     Object? name = freezed,
     Object? introduce = freezed,
+    Object? tags = freezed,
   }) {
     return _then(_$_GroupRegisterState(
       status: null == status
@@ -120,6 +129,10 @@ class __$$_GroupRegisterStateCopyWithImpl<$Res>
           ? _value.introduce
           : introduce // ignore: cast_nullable_to_non_nullable
               as String?,
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -127,7 +140,12 @@ class __$$_GroupRegisterStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_GroupRegisterState implements _GroupRegisterState {
-  _$_GroupRegisterState({required this.status, this.name, this.introduce});
+  _$_GroupRegisterState(
+      {required this.status,
+      this.name,
+      this.introduce,
+      final List<String>? tags})
+      : _tags = tags;
 
   @override
   final Status status;
@@ -135,10 +153,18 @@ class _$_GroupRegisterState implements _GroupRegisterState {
   final String? name;
   @override
   final String? introduce;
+  final List<String>? _tags;
+  @override
+  List<String>? get tags {
+    final value = _tags;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'GroupRegisterState(status: $status, name: $name, introduce: $introduce)';
+    return 'GroupRegisterState(status: $status, name: $name, introduce: $introduce, tags: $tags)';
   }
 
   @override
@@ -149,11 +175,13 @@ class _$_GroupRegisterState implements _GroupRegisterState {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.introduce, introduce) ||
-                other.introduce == introduce));
+                other.introduce == introduce) &&
+            const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, name, introduce);
+  int get hashCode => Object.hash(runtimeType, status, name, introduce,
+      const DeepCollectionEquality().hash(_tags));
 
   @JsonKey(ignore: true)
   @override
@@ -167,7 +195,8 @@ abstract class _GroupRegisterState implements GroupRegisterState {
   factory _GroupRegisterState(
       {required final Status status,
       final String? name,
-      final String? introduce}) = _$_GroupRegisterState;
+      final String? introduce,
+      final List<String>? tags}) = _$_GroupRegisterState;
 
   @override
   Status get status;
@@ -175,6 +204,8 @@ abstract class _GroupRegisterState implements GroupRegisterState {
   String? get name;
   @override
   String? get introduce;
+  @override
+  List<String>? get tags;
   @override
   @JsonKey(ignore: true)
   _$$_GroupRegisterStateCopyWith<_$_GroupRegisterState> get copyWith =>

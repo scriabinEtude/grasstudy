@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:grasstudy_client/bloc/group/bloc/group_register_bloc.dart';
 import 'package:grasstudy_client/bloc/group/bloc/group_register_event.dart';
-import 'package:grasstudy_client/presentation/color/light_color.dart';
+import 'package:grasstudy_client/presentation/screen/group/register/components/group_register_next_button.dart';
 import 'package:grasstudy_client/presentation/screen/group/register/components/group_register_title.dart';
+import 'package:go_router/go_router.dart';
+import 'package:grasstudy_client/presentation/screen/group/register/group_register_03_tag_screen.dart';
 
 class GroupRegister02IntroduceScreen extends StatefulWidget {
   const GroupRegister02IntroduceScreen({super.key});
@@ -33,34 +35,19 @@ class _GroupRegister02IntroduceScreenState
     });
   }
 
+  onNext() {
+    BlocProvider.of<GroupRegisterBloc>(context)
+        .add(GroupRegisterEvent.setIntroduce(controller.text));
+    context.goNamed(GroupRegister03TagScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      bottomSheet: Opacity(
-        opacity: validation ? 1 : 0.3,
-        child: InkWell(
-          onTap: validation
-              ? () {
-                  BlocProvider.of<GroupRegisterBloc>(context)
-                      .add(GroupRegisterEvent.setIntroduce(controller.text));
-                }
-              : null,
-          child: Container(
-            height: 60.h,
-            decoration: BoxDecoration(
-              color: lightColorTheme.tertiaryColor,
-            ),
-            child: Center(
-                child: Text(
-              '완료',
-              style: TextStyle(
-                  fontSize: 20.sp,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600),
-            )),
-          ),
-        ),
+      floatingActionButton: GroupRegisterNextButton(
+        validation: validation,
+        onTap: onNext,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),

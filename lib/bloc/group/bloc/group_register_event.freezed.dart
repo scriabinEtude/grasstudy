@@ -21,6 +21,8 @@ mixin _$GroupRegisterEvent {
     required TResult Function() init,
     required TResult Function(String name) setName,
     required TResult Function(String introduce) setIntroduce,
+    required TResult Function(List<String> tags) setTags,
+    required TResult Function() submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$GroupRegisterEvent {
     TResult? Function()? init,
     TResult? Function(String name)? setName,
     TResult? Function(String introduce)? setIntroduce,
+    TResult? Function(List<String> tags)? setTags,
+    TResult? Function()? submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$GroupRegisterEvent {
     TResult Function()? init,
     TResult Function(String name)? setName,
     TResult Function(String introduce)? setIntroduce,
+    TResult Function(List<String> tags)? setTags,
+    TResult Function()? submit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +50,8 @@ mixin _$GroupRegisterEvent {
     required TResult Function(GroupRegisterEventSetName value) setName,
     required TResult Function(GroupRegisterEventSetIntroduce value)
         setIntroduce,
+    required TResult Function(GroupRegisterEventSetTags value) setTags,
+    required TResult Function(GroupRegisterEventSubmit value) submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +59,8 @@ mixin _$GroupRegisterEvent {
     TResult? Function(GroupRegisterEventInit value)? init,
     TResult? Function(GroupRegisterEventSetName value)? setName,
     TResult? Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult? Function(GroupRegisterEventSetTags value)? setTags,
+    TResult? Function(GroupRegisterEventSubmit value)? submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +68,8 @@ mixin _$GroupRegisterEvent {
     TResult Function(GroupRegisterEventInit value)? init,
     TResult Function(GroupRegisterEventSetName value)? setName,
     TResult Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult Function(GroupRegisterEventSetTags value)? setTags,
+    TResult Function(GroupRegisterEventSubmit value)? submit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,6 +134,8 @@ class _$GroupRegisterEventInit implements GroupRegisterEventInit {
     required TResult Function() init,
     required TResult Function(String name) setName,
     required TResult Function(String introduce) setIntroduce,
+    required TResult Function(List<String> tags) setTags,
+    required TResult Function() submit,
   }) {
     return init();
   }
@@ -132,6 +146,8 @@ class _$GroupRegisterEventInit implements GroupRegisterEventInit {
     TResult? Function()? init,
     TResult? Function(String name)? setName,
     TResult? Function(String introduce)? setIntroduce,
+    TResult? Function(List<String> tags)? setTags,
+    TResult? Function()? submit,
   }) {
     return init?.call();
   }
@@ -142,6 +158,8 @@ class _$GroupRegisterEventInit implements GroupRegisterEventInit {
     TResult Function()? init,
     TResult Function(String name)? setName,
     TResult Function(String introduce)? setIntroduce,
+    TResult Function(List<String> tags)? setTags,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -157,6 +175,8 @@ class _$GroupRegisterEventInit implements GroupRegisterEventInit {
     required TResult Function(GroupRegisterEventSetName value) setName,
     required TResult Function(GroupRegisterEventSetIntroduce value)
         setIntroduce,
+    required TResult Function(GroupRegisterEventSetTags value) setTags,
+    required TResult Function(GroupRegisterEventSubmit value) submit,
   }) {
     return init(this);
   }
@@ -167,6 +187,8 @@ class _$GroupRegisterEventInit implements GroupRegisterEventInit {
     TResult? Function(GroupRegisterEventInit value)? init,
     TResult? Function(GroupRegisterEventSetName value)? setName,
     TResult? Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult? Function(GroupRegisterEventSetTags value)? setTags,
+    TResult? Function(GroupRegisterEventSubmit value)? submit,
   }) {
     return init?.call(this);
   }
@@ -177,6 +199,8 @@ class _$GroupRegisterEventInit implements GroupRegisterEventInit {
     TResult Function(GroupRegisterEventInit value)? init,
     TResult Function(GroupRegisterEventSetName value)? setName,
     TResult Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult Function(GroupRegisterEventSetTags value)? setTags,
+    TResult Function(GroupRegisterEventSubmit value)? submit,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -259,6 +283,8 @@ class _$GroupRegisterEventSetName implements GroupRegisterEventSetName {
     required TResult Function() init,
     required TResult Function(String name) setName,
     required TResult Function(String introduce) setIntroduce,
+    required TResult Function(List<String> tags) setTags,
+    required TResult Function() submit,
   }) {
     return setName(name);
   }
@@ -269,6 +295,8 @@ class _$GroupRegisterEventSetName implements GroupRegisterEventSetName {
     TResult? Function()? init,
     TResult? Function(String name)? setName,
     TResult? Function(String introduce)? setIntroduce,
+    TResult? Function(List<String> tags)? setTags,
+    TResult? Function()? submit,
   }) {
     return setName?.call(name);
   }
@@ -279,6 +307,8 @@ class _$GroupRegisterEventSetName implements GroupRegisterEventSetName {
     TResult Function()? init,
     TResult Function(String name)? setName,
     TResult Function(String introduce)? setIntroduce,
+    TResult Function(List<String> tags)? setTags,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (setName != null) {
@@ -294,6 +324,8 @@ class _$GroupRegisterEventSetName implements GroupRegisterEventSetName {
     required TResult Function(GroupRegisterEventSetName value) setName,
     required TResult Function(GroupRegisterEventSetIntroduce value)
         setIntroduce,
+    required TResult Function(GroupRegisterEventSetTags value) setTags,
+    required TResult Function(GroupRegisterEventSubmit value) submit,
   }) {
     return setName(this);
   }
@@ -304,6 +336,8 @@ class _$GroupRegisterEventSetName implements GroupRegisterEventSetName {
     TResult? Function(GroupRegisterEventInit value)? init,
     TResult? Function(GroupRegisterEventSetName value)? setName,
     TResult? Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult? Function(GroupRegisterEventSetTags value)? setTags,
+    TResult? Function(GroupRegisterEventSubmit value)? submit,
   }) {
     return setName?.call(this);
   }
@@ -314,6 +348,8 @@ class _$GroupRegisterEventSetName implements GroupRegisterEventSetName {
     TResult Function(GroupRegisterEventInit value)? init,
     TResult Function(GroupRegisterEventSetName value)? setName,
     TResult Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult Function(GroupRegisterEventSetTags value)? setTags,
+    TResult Function(GroupRegisterEventSubmit value)? submit,
     required TResult orElse(),
   }) {
     if (setName != null) {
@@ -406,6 +442,8 @@ class _$GroupRegisterEventSetIntroduce
     required TResult Function() init,
     required TResult Function(String name) setName,
     required TResult Function(String introduce) setIntroduce,
+    required TResult Function(List<String> tags) setTags,
+    required TResult Function() submit,
   }) {
     return setIntroduce(introduce);
   }
@@ -416,6 +454,8 @@ class _$GroupRegisterEventSetIntroduce
     TResult? Function()? init,
     TResult? Function(String name)? setName,
     TResult? Function(String introduce)? setIntroduce,
+    TResult? Function(List<String> tags)? setTags,
+    TResult? Function()? submit,
   }) {
     return setIntroduce?.call(introduce);
   }
@@ -426,6 +466,8 @@ class _$GroupRegisterEventSetIntroduce
     TResult Function()? init,
     TResult Function(String name)? setName,
     TResult Function(String introduce)? setIntroduce,
+    TResult Function(List<String> tags)? setTags,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (setIntroduce != null) {
@@ -441,6 +483,8 @@ class _$GroupRegisterEventSetIntroduce
     required TResult Function(GroupRegisterEventSetName value) setName,
     required TResult Function(GroupRegisterEventSetIntroduce value)
         setIntroduce,
+    required TResult Function(GroupRegisterEventSetTags value) setTags,
+    required TResult Function(GroupRegisterEventSubmit value) submit,
   }) {
     return setIntroduce(this);
   }
@@ -451,6 +495,8 @@ class _$GroupRegisterEventSetIntroduce
     TResult? Function(GroupRegisterEventInit value)? init,
     TResult? Function(GroupRegisterEventSetName value)? setName,
     TResult? Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult? Function(GroupRegisterEventSetTags value)? setTags,
+    TResult? Function(GroupRegisterEventSubmit value)? submit,
   }) {
     return setIntroduce?.call(this);
   }
@@ -461,6 +507,8 @@ class _$GroupRegisterEventSetIntroduce
     TResult Function(GroupRegisterEventInit value)? init,
     TResult Function(GroupRegisterEventSetName value)? setName,
     TResult Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult Function(GroupRegisterEventSetTags value)? setTags,
+    TResult Function(GroupRegisterEventSubmit value)? submit,
     required TResult orElse(),
   }) {
     if (setIntroduce != null) {
@@ -478,4 +526,286 @@ abstract class GroupRegisterEventSetIntroduce implements GroupRegisterEvent {
   @JsonKey(ignore: true)
   _$$GroupRegisterEventSetIntroduceCopyWith<_$GroupRegisterEventSetIntroduce>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GroupRegisterEventSetTagsCopyWith<$Res> {
+  factory _$$GroupRegisterEventSetTagsCopyWith(
+          _$GroupRegisterEventSetTags value,
+          $Res Function(_$GroupRegisterEventSetTags) then) =
+      __$$GroupRegisterEventSetTagsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> tags});
+}
+
+/// @nodoc
+class __$$GroupRegisterEventSetTagsCopyWithImpl<$Res>
+    extends _$GroupRegisterEventCopyWithImpl<$Res, _$GroupRegisterEventSetTags>
+    implements _$$GroupRegisterEventSetTagsCopyWith<$Res> {
+  __$$GroupRegisterEventSetTagsCopyWithImpl(_$GroupRegisterEventSetTags _value,
+      $Res Function(_$GroupRegisterEventSetTags) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? tags = null,
+  }) {
+    return _then(_$GroupRegisterEventSetTags(
+      null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GroupRegisterEventSetTags implements GroupRegisterEventSetTags {
+  _$GroupRegisterEventSetTags(final List<String> tags) : _tags = tags;
+
+  final List<String> _tags;
+  @override
+  List<String> get tags {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+  @override
+  String toString() {
+    return 'GroupRegisterEvent.setTags(tags: $tags)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GroupRegisterEventSetTags &&
+            const DeepCollectionEquality().equals(other._tags, _tags));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_tags));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GroupRegisterEventSetTagsCopyWith<_$GroupRegisterEventSetTags>
+      get copyWith => __$$GroupRegisterEventSetTagsCopyWithImpl<
+          _$GroupRegisterEventSetTags>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String name) setName,
+    required TResult Function(String introduce) setIntroduce,
+    required TResult Function(List<String> tags) setTags,
+    required TResult Function() submit,
+  }) {
+    return setTags(tags);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String name)? setName,
+    TResult? Function(String introduce)? setIntroduce,
+    TResult? Function(List<String> tags)? setTags,
+    TResult? Function()? submit,
+  }) {
+    return setTags?.call(tags);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String name)? setName,
+    TResult Function(String introduce)? setIntroduce,
+    TResult Function(List<String> tags)? setTags,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (setTags != null) {
+      return setTags(tags);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GroupRegisterEventInit value) init,
+    required TResult Function(GroupRegisterEventSetName value) setName,
+    required TResult Function(GroupRegisterEventSetIntroduce value)
+        setIntroduce,
+    required TResult Function(GroupRegisterEventSetTags value) setTags,
+    required TResult Function(GroupRegisterEventSubmit value) submit,
+  }) {
+    return setTags(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GroupRegisterEventInit value)? init,
+    TResult? Function(GroupRegisterEventSetName value)? setName,
+    TResult? Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult? Function(GroupRegisterEventSetTags value)? setTags,
+    TResult? Function(GroupRegisterEventSubmit value)? submit,
+  }) {
+    return setTags?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GroupRegisterEventInit value)? init,
+    TResult Function(GroupRegisterEventSetName value)? setName,
+    TResult Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult Function(GroupRegisterEventSetTags value)? setTags,
+    TResult Function(GroupRegisterEventSubmit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (setTags != null) {
+      return setTags(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GroupRegisterEventSetTags implements GroupRegisterEvent {
+  factory GroupRegisterEventSetTags(final List<String> tags) =
+      _$GroupRegisterEventSetTags;
+
+  List<String> get tags;
+  @JsonKey(ignore: true)
+  _$$GroupRegisterEventSetTagsCopyWith<_$GroupRegisterEventSetTags>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GroupRegisterEventSubmitCopyWith<$Res> {
+  factory _$$GroupRegisterEventSubmitCopyWith(_$GroupRegisterEventSubmit value,
+          $Res Function(_$GroupRegisterEventSubmit) then) =
+      __$$GroupRegisterEventSubmitCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GroupRegisterEventSubmitCopyWithImpl<$Res>
+    extends _$GroupRegisterEventCopyWithImpl<$Res, _$GroupRegisterEventSubmit>
+    implements _$$GroupRegisterEventSubmitCopyWith<$Res> {
+  __$$GroupRegisterEventSubmitCopyWithImpl(_$GroupRegisterEventSubmit _value,
+      $Res Function(_$GroupRegisterEventSubmit) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GroupRegisterEventSubmit implements GroupRegisterEventSubmit {
+  _$GroupRegisterEventSubmit();
+
+  @override
+  String toString() {
+    return 'GroupRegisterEvent.submit()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GroupRegisterEventSubmit);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String name) setName,
+    required TResult Function(String introduce) setIntroduce,
+    required TResult Function(List<String> tags) setTags,
+    required TResult Function() submit,
+  }) {
+    return submit();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String name)? setName,
+    TResult? Function(String introduce)? setIntroduce,
+    TResult? Function(List<String> tags)? setTags,
+    TResult? Function()? submit,
+  }) {
+    return submit?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String name)? setName,
+    TResult Function(String introduce)? setIntroduce,
+    TResult Function(List<String> tags)? setTags,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (submit != null) {
+      return submit();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GroupRegisterEventInit value) init,
+    required TResult Function(GroupRegisterEventSetName value) setName,
+    required TResult Function(GroupRegisterEventSetIntroduce value)
+        setIntroduce,
+    required TResult Function(GroupRegisterEventSetTags value) setTags,
+    required TResult Function(GroupRegisterEventSubmit value) submit,
+  }) {
+    return submit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GroupRegisterEventInit value)? init,
+    TResult? Function(GroupRegisterEventSetName value)? setName,
+    TResult? Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult? Function(GroupRegisterEventSetTags value)? setTags,
+    TResult? Function(GroupRegisterEventSubmit value)? submit,
+  }) {
+    return submit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GroupRegisterEventInit value)? init,
+    TResult Function(GroupRegisterEventSetName value)? setName,
+    TResult Function(GroupRegisterEventSetIntroduce value)? setIntroduce,
+    TResult Function(GroupRegisterEventSetTags value)? setTags,
+    TResult Function(GroupRegisterEventSubmit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (submit != null) {
+      return submit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GroupRegisterEventSubmit implements GroupRegisterEvent {
+  factory GroupRegisterEventSubmit() = _$GroupRegisterEventSubmit;
 }

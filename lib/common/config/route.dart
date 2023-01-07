@@ -7,6 +7,7 @@ import 'package:grasstudy_client/bloc/register/register_bloc.dart';
 import 'package:grasstudy_client/bloc/user/user_bloc.dart';
 import 'package:grasstudy_client/presentation/screen/group/register/group_register_01_name_screen.dart';
 import 'package:grasstudy_client/presentation/screen/group/register/group_register_02_introduce_screen.dart';
+import 'package:grasstudy_client/presentation/screen/group/register/group_register_03_tag_screen.dart';
 import 'package:grasstudy_client/presentation/screen/home/home_screen.dart';
 import 'package:grasstudy_client/presentation/screen/login/login_screen.dart';
 import 'package:grasstudy_client/presentation/screen/login/register/register_screen.dart';
@@ -80,21 +81,28 @@ class GrassRouter {
                     ),
                   ]),
               GoRoute(
-                  path: 'group/register',
-                  name: GroupRegister01NameScreen.routeName,
-                  builder: (context, state) {
-                    BlocProvider.of<GroupRegisterBloc>(context)
-                        .add(GroupRegisterEvent.init());
-                    return const GroupRegister01NameScreen();
-                  },
-                  routes: [
-                    GoRoute(
-                      path: 'introduce',
-                      name: GroupRegister02IntroduceScreen.routeName,
-                      builder: (context, state) =>
-                          const GroupRegister02IntroduceScreen(),
-                    ),
-                  ]),
+                path: 'group/register',
+                name: GroupRegister01NameScreen.routeName,
+                builder: (context, state) {
+                  return const GroupRegister01NameScreen();
+                },
+                routes: [
+                  GoRoute(
+                    path: 'introduce',
+                    name: GroupRegister02IntroduceScreen.routeName,
+                    builder: (context, state) =>
+                        const GroupRegister02IntroduceScreen(),
+                    routes: [
+                      GoRoute(
+                        path: 'tag',
+                        name: GroupRegister03TagScreen.routeName,
+                        builder: (context, state) =>
+                            const GroupRegister03TagScreen(),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ])
       ],
     );
